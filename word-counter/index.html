@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free word counter tool. Count words, characters, paragraphs, sentences instantly. Perfect for writing, SEO, essays.">
-    <meta name="keywords" content="word counter, character counter, text analyzer, word count tool">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="description" content="Free online word counter tool. Instantly count words, characters, paragraphs, sentences, and calculate reading time. Perfect for writers, students, and content creators.">
+    <meta name="keywords" content="word counter, character counter, text analyzer, word count tool, free word counter online, sentence counter">
+    <meta name="theme-color" content="#1a1a1a">
 
-    <title>Word Counter - Free Online Tool</title>
+    <title>Word Counter Tool - Free Online Text Analysis</title>
     <link rel="canonical" href="https://youant.me/word-counter/">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%232563eb'>📝</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%231a1a1a'>📝</text></svg>">
     <link rel="stylesheet" href="/style.css">
 
-    <meta property="og:title" content="Word Counter - Free Tool">
-    <meta property="og:description" content="Count words, characters, reading time instantly.">
+    <meta property="og:title" content="Word Counter - Free Text Analysis Tool">
+    <meta property="og:description" content="Count words, characters, paragraphs, sentences instantly with reading time calculation.">
     <meta property="og:url" content="https://youant.me/word-counter/">
     <meta property="og:type" content="website">
 
@@ -22,19 +22,35 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Word Counter",
-      "description": "Free online word counter tool",
+      "description": "Free online word counter and text analysis tool for counting words, characters, paragraphs, sentences, and reading time",
       "url": "https://youant.me/word-counter/",
-      "applicationCategory": "Productivity"
+      "applicationCategory": "Productivity",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
     </script>
 
     <style>
-        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-        .stat-box { background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center; }
-        .stat-label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 0.5rem; }
-        .stat-value { font-size: 2rem; font-weight: 700; }
-        .control-group { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
-        .control-group .btn { flex: 1; min-width: 150px; }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .stat-box { background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%); color: white; padding: 1.25rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .stat-label { font-size: 0.8rem; opacity: 0.85; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-value { font-size: 1.8rem; font-weight: 700; }
+        .control-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0; }
+        .control-group .btn { flex: 1; min-width: 120px; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature { padding: 1.5rem; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #1a1a1a; }
+        .feature h3 { font-size: 1rem; margin-bottom: 0.5rem; color: #1a1a1a; }
+        .feature p { font-size: 0.9rem; color: #666; margin: 0; }
+
+        .info-section { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; border: 1px solid #e0e0e0; }
+        .info-section h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #1a1a1a; }
+        .info-section ul { list-style: none; padding-left: 0; }
+        .info-section li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: #555; }
+        .info-section li:before { content: "✓"; position: absolute; left: 0; color: #16a34a; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -46,24 +62,25 @@
 
     <div class="header">
         <div class="container">
-            <h1>Word Counter</h1>
-            <p>Count words, characters, paragraphs, sentences in real-time</p>
+            <h1>Word Counter Tool</h1>
+            <p>Count words, characters, paragraphs, sentences and calculate reading time instantly</p>
         </div>
     </div>
 
     <main class="container">
         <section>
             <div class="card">
-                <label for="textInput" style="display: block; font-weight: 600; margin-bottom: 0.75rem;">Paste or type text</label>
+                <label for="textInput" style="display: block; font-weight: 600; margin-bottom: 0.75rem; color: #1a1a1a;">Paste or Type Your Text</label>
                 <textarea
                     id="textInput"
-                    placeholder="Enter your text here..."
+                    placeholder="Enter your text, essay, article, or code here..."
                     aria-label="Text input for word counter"
                 ></textarea>
 
                 <div class="control-group">
-                    <button class="btn" id="clearBtn">Clear</button>
-                    <button class="btn btn-secondary" id="copyBtn">Copy Stats</button>
+                    <button class="btn" id="generateBtn">Analyze Text</button>
+                    <button class="btn" id="clearBtn">Clear All</button>
+                    <button class="btn" id="copyBtn">Copy Results</button>
                 </div>
 
                 <div class="stat-grid">
@@ -84,7 +101,7 @@
                         <div class="stat-value" id="sentenceCount">0</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-label">Read Time</div>
+                        <div class="stat-label">Reading Time</div>
                         <div class="stat-value" id="readingTime">0m</div>
                     </div>
                     <div class="stat-box">
@@ -94,16 +111,71 @@
                 </div>
             </div>
         </section>
+
+        <section>
+            <h2>Features of Our Word Counter</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>📊 Real-time Analysis</h3>
+                    <p>Get instant results as you type. No delays, no waiting. Perfect for live writing sessions.</p>
+                </div>
+                <div class="feature">
+                    <h3>📖 Reading Time Calculation</h3>
+                    <p>Automatically calculates estimated reading time based on average reading speed of 200 words per minute.</p>
+                </div>
+                <div class="feature">
+                    <h3>🎯 Multiple Metrics</h3>
+                    <p>Track words, characters, paragraphs, sentences, and average word length all at once.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔐 100% Private</h3>
+                    <p>All processing happens in your browser. Your text is never sent to any server.</p>
+                </div>
+                <div class="feature">
+                    <h3>⚡ Fast & Free</h3>
+                    <p>No registration required, no ads, and completely free to use forever.</p>
+                </div>
+                <div class="feature">
+                    <h3>📋 Easy Sharing</h3>
+                    <p>Copy results with one click and share your text statistics anywhere.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>How to Use the Word Counter</h2>
+            <ul>
+                <li>Paste or type your text into the text area above</li>
+                <li>Results update automatically in real-time as you type</li>
+                <li>View comprehensive statistics including word count and reading time</li>
+                <li>Click "Copy Results" to quickly share your text analysis</li>
+                <li>Use "Clear All" to reset and start with new text</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Why Use Our Word Counter?</h2>
+            <p>Our word counter tool is perfect for:</p>
+            <ul>
+                <li><strong>Writers & Bloggers:</strong> Track word count for articles and blog posts</li>
+                <li><strong>Students:</strong> Meet essay and assignment word count requirements</li>
+                <li><strong>Content Creators:</strong> Optimize content for SEO and readability</li>
+                <li><strong>Copywriters:</strong> Analyze text structure and average word length</li>
+                <li><strong>Editors:</strong> Review document statistics and text metrics</li>
+                <li><strong>Anyone needing text analysis</strong> without complex software</li>
+            </ul>
+        </section>
     </main>
 
     <footer>
         <div class="container text-center">
-            <p>&copy; 2026 Free Tools.</p>
+            <p>&copy; 2026 Free Tools. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         const textInput = document.getElementById('textInput');
+        const generateBtn = document.getElementById('generateBtn');
         const clearBtn = document.getElementById('clearBtn');
         const copyBtn = document.getElementById('copyBtn');
         const wordCountEl = document.getElementById('wordCount');
@@ -131,6 +203,12 @@
         }
 
         textInput.addEventListener('input', updateStats);
+
+        generateBtn.addEventListener('click', () => {
+            updateStats();
+            textInput.focus();
+        });
+
         clearBtn.addEventListener('click', () => {
             textInput.value = '';
             updateStats();
@@ -138,7 +216,7 @@
         });
 
         copyBtn.addEventListener('click', () => {
-            const stats = `Words: ${wordCountEl.textContent}\nCharacters: ${charCountEl.textContent}\nParagraphs: ${paragraphCountEl.textContent}\nSentences: ${sentenceCountEl.textContent}`;
+            const stats = `Words: ${wordCountEl.textContent}\nCharacters: ${charCountEl.textContent}\nParagraphs: ${paragraphCountEl.textContent}\nSentences: ${sentenceCountEl.textContent}\nReading Time: ${readingTimeEl.textContent}\nAvg Word Length: ${avgWordLengthEl.textContent}`;
             navigator.clipboard.writeText(stats).then(() => {
                 const orig = copyBtn.textContent;
                 copyBtn.textContent = '✓ Copied!';

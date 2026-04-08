@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Code runner. Write and execute HTML, CSS, JavaScript instantly with live preview and line numbers.">
-    <meta name="keywords" content="code runner, online editor, javascript, html, css">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="description" content="Free online code runner. Write and execute HTML, CSS, JavaScript with live preview, syntax highlighting, and line numbers instantly.">
+    <meta name="keywords" content="code runner, online editor, javascript editor, html editor, css editor, code playground, online IDE">
+    <meta name="theme-color" content="#1a1a1a">
 
-    <title>Code Runner - Online JavaScript HTML CSS Editor</title>
+    <title>Code Runner - Free Online HTML CSS JavaScript Editor</title>
     <link rel="canonical" href="https://youant.me/code-runner/">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%232563eb'>💻</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%231a1a1a'>💻</text></svg>">
     <link rel="stylesheet" href="/style.css">
 
-    <meta property="og:title" content="Code Runner - Online Editor">
-    <meta property="og:description" content="Execute HTML CSS JavaScript code with live preview.">
+    <meta property="og:title" content="Code Runner - Online Code Editor">
+    <meta property="og:description" content="Write and execute HTML, CSS, JavaScript code with live preview and line numbers.">
     <meta property="og:url" content="https://youant.me/code-runner/">
+    <meta property="og:type" content="website">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Code Runner",
-      "description": "Online code editor with live preview",
+      "description": "Free online code editor with live preview for HTML, CSS, and JavaScript",
       "url": "https://youant.me/code-runner/",
-      "applicationCategory": "DeveloperApplication"
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
     </script>
 
@@ -46,7 +52,7 @@
         }
 
         .section-header {
-            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
             color: white;
             padding: 1rem;
             font-weight: 600;
@@ -71,11 +77,12 @@
             color: #666;
             border-bottom: 3px solid transparent;
             transition: all 0.2s;
+            font-size: 0.95rem;
         }
 
         .tab.active {
-            color: #2563eb;
-            border-bottom-color: #2563eb;
+            color: #1a1a1a;
+            border-bottom-color: #1a1a1a;
             background: white;
         }
 
@@ -99,7 +106,7 @@
             line-height: 1.6;
             user-select: none;
             white-space: pre;
-            border-right: 1px solid #e0e0e0;
+            border-right: 1px solid #444;
             overflow: hidden;
         }
 
@@ -136,8 +143,19 @@
 
         .controls .btn {
             flex: 1;
-            min-width: 120px;
+            min-width: 110px;
         }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature { padding: 1.5rem; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #1a1a1a; }
+        .feature h3 { font-size: 1rem; margin-bottom: 0.5rem; color: #1a1a1a; }
+        .feature p { font-size: 0.9rem; color: #666; margin: 0; }
+
+        .info-section { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; border: 1px solid #e0e0e0; }
+        .info-section h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #1a1a1a; }
+        .info-section ul { list-style: none; padding-left: 0; }
+        .info-section li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: #555; }
+        .info-section li:before { content: "✓"; position: absolute; left: 0; color: #16a34a; font-weight: bold; }
 
         @media (max-width: 1024px) {
             .editor-container {
@@ -169,22 +187,22 @@
     <div class="header">
         <div class="container">
             <h1>Code Runner</h1>
-            <p>Write HTML, CSS, JavaScript and see results instantly</p>
+            <p>Write HTML, CSS, JavaScript and see results instantly with live preview</p>
         </div>
     </div>
 
     <main class="container">
         <section>
             <div class="controls">
-                <button class="btn" id="runBtn">▶ Run</button>
-                <button class="btn btn-secondary" id="resetBtn">↻ Reset</button>
-                <button class="btn btn-secondary" id="downloadBtn">⬇ Download</button>
+                <button class="btn" id="runBtn">▶ Run Code</button>
+                <button class="btn" id="resetBtn">↻ Reset</button>
+                <button class="btn" id="downloadBtn">⬇ Download</button>
             </div>
 
             <div class="editor-container">
                 <div class="editor-section">
                     <div class="section-header">
-                        <span>Editor</span>
+                        <span>Code Editor</span>
                         <span id="lineCount" style="font-size: 0.85rem;">1 line</span>
                     </div>
                     <div class="tabs">
@@ -202,15 +220,69 @@
 
                 <div class="preview-section">
                     <div class="section-header">Live Preview</div>
-                    <iframe id="preview" class="preview-iframe" sandbox="allow-scripts allow-same-origin" title="Live preview"></iframe>
+                    <iframe id="preview" class="preview-iframe" sandbox="allow-scripts allow-same-origin" title="Live preview of your code"></iframe>
                 </div>
             </div>
+        </section>
+
+        <section>
+            <h2>Features of Our Code Runner</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>💻 Multiple Languages</h3>
+                    <p>Write HTML, CSS, and JavaScript in separate tabs with syntax-friendly editors.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔴 Live Preview</h3>
+                    <p>See your code results instantly without page reloads or compilation delays.</p>
+                </div>
+                <div class="feature">
+                    <h3>📊 Line Numbers</h3>
+                    <p>View line numbers for easier code navigation and reference.</p>
+                </div>
+                <div class="feature">
+                    <h3>⬇️ Download Code</h3>
+                    <p>Save your code as a complete HTML file directly to your computer.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔐 Secure Sandbox</h3>
+                    <p>Code runs in an isolated iframe for enhanced security and stability.</p>
+                </div>
+                <div class="feature">
+                    <h3>⚡ No Setup Required</h3>
+                    <p>Start coding immediately with no installation or account needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>How to Use the Code Runner</h2>
+            <ul>
+                <li>Click the HTML, CSS, or JavaScript tabs to edit different parts of your code</li>
+                <li>Type or paste your code into the editor</li>
+                <li>See your results update in the live preview panel automatically</li>
+                <li>Click "Run Code" to manually refresh the preview</li>
+                <li>Use "Reset" to restore the default example code</li>
+                <li>Click "Download" to save your complete code as an HTML file</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Perfect For</h2>
+            <ul>
+                <li><strong>Web Developers:</strong> Test HTML, CSS, and JavaScript snippets quickly</li>
+                <li><strong>Students:</strong> Learn web development interactively with instant feedback</li>
+                <li><strong>Designers:</strong> Prototype UI designs and test responsive layouts</li>
+                <li><strong>Educators:</strong> Teach web development concepts with live examples</li>
+                <li><strong>Quick Testing:</strong> Validate code changes without a full development environment</li>
+                <li><strong>Sharing Code:</strong> Create and share interactive code examples online</li>
+            </ul>
         </section>
     </main>
 
     <footer>
         <div class="container text-center">
-            <p>&copy; 2026 Free Tools.</p>
+            <p>&copy; 2026 Free Tools. All rights reserved.</p>
         </div>
     </footer>
 
@@ -244,14 +316,15 @@
 h1 { margin-bottom: 1rem; }
 button {
     padding: 0.75rem 1.5rem;
-    background: #2563eb;
+    background: #4a4a4a;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
-button:hover { background: #1e40af; }`;
+button:hover { background: #2d2d2d; }`;
 
         const defaultJS = `document.getElementById('btn')?.addEventListener('click', () => {
     alert('Button clicked! 🎉');
