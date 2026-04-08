@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Password generator. Create strong, secure passwords instantly. Customize length and character types.">
+    <meta name="keywords" content="password generator, random password, secure password, password tool">
+    <meta name="theme-color" content="#2563eb">
+
+    <title>Password Generator - Free Strong Password Tool</title>
+    <link rel="canonical" href="https://youant.me/password-generator/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%232563eb'>🔐</text></svg>">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta property="og:title" content="Password Generator">
+    <meta property="og:description" content="Create secure passwords instantly.">
+    <meta property="og:url" content="https://youant.me/password-generator/">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Password Generator",
+      "description": "Free password generator tool",
+      "url": "https://youant.me/password-generator/",
+      "applicationCategory": "UtilityApplication"
+    }
+    </script>
+
+    <style>
+        .password-box {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2563eb;
+            word-break: break-all;
+            margin: 1.5rem 0;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            border: 2px solid #e0e0e0;
+        }
+
+        .options-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .option {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option label {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .option input[type="range"] {
+            width: 100%;
+        }
+
+        .length-display {
+            text-align: center;
+            font-weight: 600;
+            color: #2563eb;
+            font-size: 1.25rem;
+        }
+
+        .checkboxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .strength-meter {
+            margin: 2rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .strength-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0.75rem 0;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .strength-weak { background: #dc2626; width: 33%; }
+        .strength-medium { background: #ea580c; width: 66%; }
+        .strength-strong { background: #16a34a; width: 100%; }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .controls .btn {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        @media (max-width: 768px) {
+            .options-group {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .checkboxes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="container">
+            <h1>Password Generator</h1>
+            <p>Create strong, secure passwords instantly</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <section>
+            <div class="card">
+                <div class="password-box" id="passwordDisplay">Generate password...</div>
+
+                <div class="controls">
+                    <button class="btn" id="generateBtn">🔄 Generate</button>
+                    <button class="btn btn-secondary" id="copyBtn">📋 Copy</button>
+                </div>
+
+                <div class="options-group">
+                    <div class="option">
+                        <label for="lengthSlider">Password Length</label>
+                        <input type="range" id="lengthSlider" min="8" max="64" value="16">
+                        <div class="length-display" id="lengthValue">16</div>
+                    </div>
+
+                    <div class="option">
+                        <label>Character Types</label>
+                        <div class="checkboxes">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="uppercase" checked>
+                                <label for="uppercase">A-Z</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lowercase" checked>
+                                <label for="lowercase">a-z</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="numbers" checked>
+                                <label for="numbers">0-9</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="symbols" checked>
+                                <label for="symbols">!@#$%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="strength-meter">
+                    <label>Strength</label>
+                    <div class="strength-bar">
+                        <div class="strength-fill strength-strong"></div>
+                    </div>
+                    <div style="font-weight: 600; color: #16a34a;">Strong</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Free Tools.</p>
+        </div>
+    </footer>
+
+    <script>
+        const passwordDisplay = document.getElementById('passwordDisplay');
+        const generateBtn = document.getElementById('generateBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const lengthSlider = document.getElementById('lengthSlider');
+        const lengthValue = document.getElementById('lengthValue');
+        const uppercase = document.getElementById('uppercase');
+        const lowercase = document.getElementById('lowercase');
+        const numbers = document.getElementById('numbers');
+        const symbols = document.getElementById('symbols');
+
+        const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz';
+        const NUMBERS = '0123456789';
+        const SYMBOLS = '!@#$%^&*()_+-={}[]|:;<>?,./';
+
+        function generatePassword() {
+            const length = parseInt(lengthSlider.value);
+            let chars = '';
+
+            if (uppercase.checked) chars += UPPERCASE;
+            if (lowercase.checked) chars += LOWERCASE;
+            if (numbers.checked) chars += NUMBERS;
+            if (symbols.checked) chars += SYMBOLS;
+
+            if (!chars) {
+                passwordDisplay.textContent = 'Select at least one option';
+                return;
+            }
+
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+
+            passwordDisplay.textContent = password;
+        }
+
+        lengthSlider.addEventListener('input', (e) => {
+            lengthValue.textContent = e.target.value;
+            generatePassword();
+        });
+
+        uppercase.addEventListener('change', generatePassword);
+        lowercase.addEventListener('change', generatePassword);
+        numbers.addEventListener('change', generatePassword);
+        symbols.addEventListener('change', generatePassword);
+
+        generateBtn.addEventListener('click', generatePassword);
+
+        copyBtn.addEventListener('click', () => {
+            const text = passwordDisplay.textContent;
+            if (text.includes('Select')) {
+                alert('Select at least one option first');
+                return;
+            }
+            navigator.clipboard.writeText(text).then(() => {
+                const orig = copyBtn.textContent;
+                copyBtn.textContent = '✓ Copied!';
+                copyBtn.classList.add('btn-success');
+                setTimeout(() => {
+                    copyBtn.textContent = orig;
+                    copyBtn.classList.remove('btn-success');
+                }, 1500);
+            });
+        });
+
+        generatePassword();
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free word counter tool. Count words, characters, paragraphs, sentences instantly. Perfect for writing, SEO, essays.">
+    <meta name="keywords" content="word counter, character counter, text analyzer, word count tool">
+    <meta name="theme-color" content="#2563eb">
+
+    <title>Word Counter - Free Online Tool</title>
+    <link rel="canonical" href="https://youant.me/word-counter/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%232563eb'>📝</text></svg>">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta property="og:title" content="Word Counter - Free Tool">
+    <meta property="og:description" content="Count words, characters, reading time instantly.">
+    <meta property="og:url" content="https://youant.me/word-counter/">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Word Counter",
+      "description": "Free online word counter tool",
+      "url": "https://youant.me/word-counter/",
+      "applicationCategory": "Productivity"
+    }
+    </script>
+
+    <style>
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .stat-box { background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center; }
+        .stat-label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 0.5rem; }
+        .stat-value { font-size: 2rem; font-weight: 700; }
+        .control-group { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
+        .control-group .btn { flex: 1; min-width: 150px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="container">
+            <h1>Word Counter</h1>
+            <p>Count words, characters, paragraphs, sentences in real-time</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <section>
+            <div class="card">
+                <label for="textInput" style="display: block; font-weight: 600; margin-bottom: 0.75rem;">Paste or type text</label>
+                <textarea
+                    id="textInput"
+                    placeholder="Enter your text here..."
+                    aria-label="Text input for word counter"
+                ></textarea>
+
+                <div class="control-group">
+                    <button class="btn" id="clearBtn">Clear</button>
+                    <button class="btn btn-secondary" id="copyBtn">Copy Stats</button>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">Words</div>
+                        <div class="stat-value" id="wordCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Characters</div>
+                        <div class="stat-value" id="charCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Paragraphs</div>
+                        <div class="stat-value" id="paragraphCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Sentences</div>
+                        <div class="stat-value" id="sentenceCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Read Time</div>
+                        <div class="stat-value" id="readingTime">0m</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Avg Word Len</div>
+                        <div class="stat-value" id="avgWordLength">0</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Free Tools.</p>
+        </div>
+    </footer>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const clearBtn = document.getElementById('clearBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const wordCountEl = document.getElementById('wordCount');
+        const charCountEl = document.getElementById('charCount');
+        const paragraphCountEl = document.getElementById('paragraphCount');
+        const sentenceCountEl = document.getElementById('sentenceCount');
+        const readingTimeEl = document.getElementById('readingTime');
+        const avgWordLengthEl = document.getElementById('avgWordLength');
+
+        function updateStats() {
+            const text = textInput.value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const chars = text.length;
+            const paragraphs = text.trim() ? text.trim().split(/\n\n+/).length : 0;
+            const sentences = (text.match(/[.!?]+/g) || []).length;
+            const readTime = Math.ceil(words / 200) || 0;
+            const avgLen = words > 0 ? (text.replace(/\s/g, '').length / words).toFixed(1) : 0;
+
+            wordCountEl.textContent = words.toLocaleString();
+            charCountEl.textContent = chars.toLocaleString();
+            paragraphCountEl.textContent = paragraphs;
+            sentenceCountEl.textContent = sentences;
+            readingTimeEl.textContent = readTime + 'm';
+            avgWordLengthEl.textContent = avgLen;
+        }
+
+        textInput.addEventListener('input', updateStats);
+        clearBtn.addEventListener('click', () => {
+            textInput.value = '';
+            updateStats();
+            textInput.focus();
+        });
+
+        copyBtn.addEventListener('click', () => {
+            const stats = `Words: ${wordCountEl.textContent}\nCharacters: ${charCountEl.textContent}\nParagraphs: ${paragraphCountEl.textContent}\nSentences: ${sentenceCountEl.textContent}`;
+            navigator.clipboard.writeText(stats).then(() => {
+                const orig = copyBtn.textContent;
+                copyBtn.textContent = '✓ Copied!';
+                copyBtn.classList.add('btn-success');
+                setTimeout(() => {
+                    copyBtn.textContent = orig;
+                    copyBtn.classList.remove('btn-success');
+                }, 1500);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateStats();
+            textInput.focus();
+        });
+    </script>
+</body>
+</html>
