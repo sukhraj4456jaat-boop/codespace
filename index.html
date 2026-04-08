@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Free productivity tools: word counter, code runner, password generator. Fast, private, no signup required.">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#1a1a1a">
 
     <title>Free Tools - Word Counter, Code Runner, Password Generator</title>
     <link rel="canonical" href="https://youant.me/">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%232563eb'>⚡</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%231a1a1a'>⚡</text></svg>">
     <link rel="stylesheet" href="/style.css">
 
     <meta property="og:title" content="Free Tools - Productivity Apps">
@@ -25,7 +25,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Free Tools",
-      "description": "Collection of free productivity tools",
+      "description": "Collection of free productivity tools including word counter, code runner, and password generator",
       "url": "https://youant.me/",
       "applicationCategory": "Productivity",
       "operatingSystem": "Web",
@@ -33,14 +33,38 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      }
+      },
+      "hasApplication": [
+        {
+          "@type": "WebApplication",
+          "name": "Word Counter",
+          "url": "https://youant.me/word-counter/"
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Code Runner",
+          "url": "https://youant.me/code-runner/"
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Password Generator",
+          "url": "https://youant.me/password-generator/"
+        }
+      ]
     }
     </script>
+
+    <style>
+        .tool-card { transition: all 0.3s ease; }
+        .tool-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .tool-card h3 { color: #1a1a1a; margin-bottom: 0.5rem; }
+        .tool-card p { color: #666; margin-bottom: 1.5rem; }
+    </style>
 </head>
 <body>
     <nav>
         <div class="container">
-            <div class="logo">⚡ Free Tools</div>
+            <div class="logo"><a href="/">⚡ Free Tools</a></div>
         </div>
     </nav>
 
@@ -54,25 +78,25 @@
     <main class="container">
         <section>
             <div class="grid grid-3">
-                <article class="card text-center">
-                    <h2 style="font-size: 2rem; margin-bottom: 1rem;">📝</h2>
+                <article class="card tool-card text-center">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">📝</h2>
                     <h3>Word Counter</h3>
-                    <p>Count words, characters, reading time</p>
-                    <a href="/word-counter/" class="btn">Open Tool</a>
+                    <p>Count words, characters, paragraphs, and calculate reading time instantly</p>
+                    <a href="/word-counter/" class="btn">Open Tool →</a>
                 </article>
 
-                <article class="card text-center">
-                    <h2 style="font-size: 2rem; margin-bottom: 1rem;">💻</h2>
+                <article class="card tool-card text-center">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">💻</h2>
                     <h3>Code Runner</h3>
-                    <p>Execute HTML, CSS, JavaScript instantly</p>
-                    <a href="/code-runner/" class="btn">Open Tool</a>
+                    <p>Execute HTML, CSS, and JavaScript code with live preview</p>
+                    <a href="/code-runner/" class="btn">Open Tool →</a>
                 </article>
 
-                <article class="card text-center">
-                    <h2 style="font-size: 2rem; margin-bottom: 1rem;">🔐</h2>
+                <article class="card tool-card text-center">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🔐</h2>
                     <h3>Password Generator</h3>
-                    <p>Create strong secure passwords</p>
-                    <a href="/password-generator/" class="btn">Open Tool</a>
+                    <p>Create strong, secure, and random passwords instantly</p>
+                    <a href="/password-generator/" class="btn">Open Tool →</a>
                 </article>
             </div>
         </section>
