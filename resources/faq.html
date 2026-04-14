@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently Asked Questions - Premium Free Tools. Find answers to common questions about our productivity tools.">
+    <meta name="theme-color" content="#0f1419">
+    <title>FAQ - Premium Free Tools</title>
+    <link rel="canonical" href="https://tools.youant.me/resources/faq.html">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+        </div>
+    </nav>
+    <div class="header">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our free tools</p>
+        </div>
+    </div>
+    <main class="container">
+        <div class="breadcrumb">
+            <span><a href="/">Home</a></span>
+            <span> → </span>
+            <span>Resources</span>
+            <span> → </span>
+            <span>FAQ</span>
+        </div>
+        <section class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question">Are these tools really free?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! All tools are 100% free forever. No premium versions, no hidden costs, no ads.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you store my data?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">No. All processing happens in your browser. Your data never leaves your device.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do I need to create an account?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">No signup required. Use tools immediately without registration.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Works offline?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Once loaded, tools work offline since they run locally in your browser.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Which tools do you offer?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">8 tools: Word Counter, Code Runner, Password Generator, JSON Formatter, QR Code, Unit Converter, Base64, and Markdown to HTML.</div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Free Tools</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('active'));
+        });
+    </script>
+</body>
+</html>
