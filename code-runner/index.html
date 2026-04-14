@@ -8,13 +8,13 @@
     <meta name="theme-color" content="#1a1a1a">
 
     <title>Code Runner - Free Online HTML CSS JavaScript Editor</title>
-    <link rel="canonical" href="https://youant.me/code-runner/">
+    <link rel="canonical" href="https://tools.youant.me/code-runner/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%231a1a1a'>💻</text></svg>">
     <link rel="stylesheet" href="/style.css">
 
     <meta property="og:title" content="Code Runner - Online Code Editor">
     <meta property="og:description" content="Write and execute HTML, CSS, JavaScript code with live preview and line numbers.">
-    <meta property="og:url" content="https://youant.me/code-runner/">
+    <meta property="og:url" content="https://tools.youant.me/code-runner/">
     <meta property="og:type" content="website">
 
     <script type="application/ld+json">
@@ -23,7 +23,7 @@
       "@type": "WebApplication",
       "name": "Code Runner",
       "description": "Free online code editor with live preview for HTML, CSS, and JavaScript",
-      "url": "https://youant.me/code-runner/",
+      "url": "https://tools.youant.me/code-runner/",
       "applicationCategory": "DeveloperApplication",
       "offers": {
         "@type": "Offer",
@@ -157,6 +157,15 @@
         .info-section li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: #555; }
         .info-section li:before { content: "✓"; position: absolute; left: 0; color: #16a34a; font-weight: bold; }
 
+        .faq-section { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+        .faq-item { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; }
+        .faq-item:hover { border-color: #10b981; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1); }
+        .faq-question { padding: 1.25rem; font-weight: 600; color: #1a1a1a; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .faq-toggle { color: #10b981; font-size: 1.5rem; font-weight: bold; transition: transform 0.3s ease; }
+        .faq-answer { padding: 0 1.25rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: #555; line-height: 1.6; }
+        .faq-item.active .faq-answer { padding: 0 1.25rem 1.25rem; max-height: 500px; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); }
+
         @media (max-width: 1024px) {
             .editor-container {
                 grid-template-columns: 1fr;
@@ -192,7 +201,77 @@
     </div>
 
     <main class="container">
+        <div class="breadcrumb">
+            <span><a href="/">Home</a></span>
+            <span> → </span>
+            <span>Tools</span>
+            <span> → </span>
+            <span>Code Runner</span>
+        </div>
+
         <section>
+            <div class="card">
+                <h2>What is a Code Runner?</h2>
+                <p>A code runner is an online development environment that allows you to write and execute HTML, CSS, and JavaScript code directly in your browser without needing to install any software or set up a local development environment. It provides instant live previewing of your code changes, making it perfect for learning, testing, prototyping, and quick development tasks.</p>
+                <p>Our code runner features a split-screen layout with syntax-highlighted code editors on one side and a live preview on the other. As you type or modify your code, the preview updates in real-time, giving you immediate visual feedback on how changes affect your web projects.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h2>Who Should Use This Tool?</h2>
+                <p>The Code Runner is designed for a diverse group of web professionals and learners:</p>
+                <div class="features" style="margin: 1.5rem 0;">
+                    <div class="feature">
+                        <h3>👨‍💻 Web Developers</h3>
+                        <p>Quickly test HTML, CSS, and JavaScript snippets without setting up a full development environment.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🎓 Students & Learners</h3>
+                        <p>Learn web development interactively with immediate visual feedback on code changes.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🎨 UI/UX Designers</h3>
+                        <p>Prototype and test responsive layouts, animations, and interactive components.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>👨‍🏫 Educators & Instructors</h3>
+                        <p>Teach web development concepts with live, interactive code examples that students can follow.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🚀 Freelancers</h3>
+                        <p>Show clients interactive prototypes and code examples without complex setups.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🔧 Anyone Testing Code</h3>
+                        <p>Validate quick HTML/CSS/JS changes or test code snippets from tutorials.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h2>How This Tool Helps You</h2>
+                <h3>Instant Development Environment</h3>
+                <p>No installation, no configuration, no waiting. Start coding immediately with a full HTML/CSS/JavaScript editor ready to go.</p>
+
+                <h3>Real-Time Live Preview</h3>
+                <p>See your changes instantly as you type. This immediate feedback helps you learn faster and debug more efficiently than traditional workflows.</p>
+
+                <h3>Learn Web Development</h3>
+                <p>Perfect for beginners learning HTML, CSS, and JavaScript. Test every concept immediately and see visual results in real-time.</p>
+
+                <h3>Prototype Quickly</h3>
+                <p>Test UI ideas, layout concepts, and interactive features without the overhead of setting up a full project.</p>
+
+                <h3>Share Code Snippets</h3>
+                <p>Download your code as complete HTML files. Perfect for sharing examples, tutorials, or starting code templates.</p>
+
+                <h3>Debug with Ease</h3>
+                <p>Test code modifications quickly without rebuilding or restarting development servers.</p>
+            </div>
+        </section>
             <div class="controls">
                 <button class="btn" id="runBtn">▶ Run Code</button>
                 <button class="btn" id="resetBtn">↻ Reset</button>
@@ -279,6 +358,105 @@
             </ul>
         </section>
     </main>
+
+    <main class="container" style="margin-top: 0;">
+        <section>
+            <div class="card">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <div class="faq-question">💻 What languages does the Code Runner support?</div>
+                        <div class="faq-answer">The Code Runner supports HTML, CSS, and JavaScript. These are the three core web technologies that run in every browser.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🔒 Is my code stored on your servers?</div>
+                        <div class="faq-answer">No. All code processing happens locally in your browser. We don't store, track, or transmit your code to any servers. Your work stays completely private.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">📥 Can I import files from my computer?</div>
+                        <div class="faq-answer">You can copy and paste HTML, CSS, and JavaScript code directly into the respective editors. For file uploads, you can use the browser's file system access or copy-paste from your editor.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">⬇️ How do I download my code?</div>
+                        <div class="faq-answer">Click the "Download" button to save your complete code as a single HTML file that includes your HTML, CSS, and JavaScript all in one file.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">📱 Does it work on mobile devices?</div>
+                        <div class="faq-answer">Yes, the code runner is fully responsive and works on phones and tablets, though the smaller screen size may feel cramped for complex code.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🎯 What's the purpose of separate tabs?</div>
+                        <div class="faq-answer">The separate HTML, CSS, and JavaScript tabs keep your code organized and make it easier to navigate and edit different parts of your project.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🖥️ Can I use external libraries or frameworks?</div>
+                        <div class="faq-answer">Yes. In the HTML editor, you can include links to external libraries using script tags (for JavaScript) or link tags (for CSS) that point to CDNs.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">⏱️ What is the line counter showing?</div>
+                        <div class="faq-answer">The line counter displays the total number of lines in your current code editor tab. It updates automatically as you add or remove lines.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🔄 What does the Reset button do?</div>
+                        <div class="faq-answer">The Reset button clears all your code and restores the default "Hello World" example. Use this to start fresh or get back to a working example.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🌐 Can I run jQuery or other frameworks?</div>
+                        <div class="faq-answer">Yes. Add jQuery via CDN by including this in your HTML: &lt;script src="https://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">⚠️ What if my JavaScript has errors?</div>
+                        <div class="faq-answer">JavaScript errors appear in the browser console (F12 key). The code will still run, but errors may prevent functionality. Check the console to debug.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">📊 Can I access the preview console output?</div>
+                        <div class="faq-answer">Right-click on the preview pane and select "Inspect" to open Developer Tools where you can see console logs and debug information.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🔗 How do I include images in my HTML?</div>
+                        <div class="faq-answer">You can use &lt;img&gt; tags with image URLs from the internet. Example: &lt;img src="https://example.com/image.jpg" alt="Description"&gt;</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">💾 Can I save my work for later?</div>
+                        <div class="faq-answer">Download your code to save it locally. The editor doesn't have persistent storage, so always download important work.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🚀 Can I share my code with others?</div>
+                        <div class="faq-answer">Download your HTML file and share it directly. Others can open the file in any browser to see your code and results.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h2>More Information & Tips</h2>
+
+                <h3>Tips for Effective Learning</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Experiment Freely:</strong> Don't worry about breaking anything. The preview updates live, so you can test ideas instantly.</li>
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Use Browser DevTools:</strong> Press F12 to open DevTools. Inspect elements, check console for errors, and debug JavaScript.</li>
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Test Responsiveness:</strong> Use browser zoom or change window size to test how your code responds to different screen sizes.</li>
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Save Frequently:</strong> Download your code often. The editor doesn't have auto-save, so your work won't persist if you close the tab.</li>
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Reference Documentation:</strong> Keep MDN Web Docs or W3Schools open in another tab for HTML/CSS/JavaScript references.</li>
+                </ul>
+
+                <h3>Common Use Cases</h3>
+                <p><strong>Learning HTML/CSS:</strong> Write basic HTML structures and style them with CSS. See changes instantly and understand how markup and styling work together.</p>
+                <p><strong>Testing Snippets:</strong> Quickly test code pieces from tutorials or Stack Overflow answers without creating a full project.</p>
+                <p><strong>Creating Demos:</strong> Build interactive examples to understand JavaScript concepts like event handling, DOM manipulation, and animations.</p>
+                <p><strong>Prototyping Layouts:</strong> Test different CSS layouts (Flexbox, Grid) and responsive design patterns.</p>
+                <p><strong>Teaching & Tutoring:</strong> Show students live code examples with instant visual feedback.</p>
+
+                <h3>Related Tools That Work Well Together</h3>
+                <p>After prototyping in Code Runner, enhance your development workflow with these tools:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.5rem 0;"><strong>→ <a href="https://tools.youant.me/markdown-to-html/" style="color: #10b981; text-decoration: none;">Markdown to HTML Converter</a>:</strong> Convert documentation to HTML for embedding in your projects.</li>
+                    <li style="padding: 0.5rem 0;"><strong>→ <a href="https://tools.youant.me/json-formatter/" style="color: #10b981; text-decoration: none;">JSON Formatter</a>:</strong> Format and validate JSON data used in JavaScript projects.</li>
+                    <li style="padding: 0.5rem 0;"><strong>→ <a href="https://tools.youant.me/base64-encoder/" style="color: #10b981; text-decoration: none;">Base64 Encoder</a>:</strong> Encode images or data as Base64 for embedding in HTML/CSS.</li>
+                </ul>
+            </div>
+        </section>
 
     <footer>
         <div class="container text-center">
@@ -385,6 +563,13 @@ button:hover { background: #2d2d2d; }`;
         jsEditor.value = defaultJS;
         updateLineNumbers(htmlEditor);
         updatePreview();
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.closest('.faq-item').classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>

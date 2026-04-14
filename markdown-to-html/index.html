@@ -26,12 +26,32 @@
         @media (max-width: 1024px) { .md-grid { grid-template-columns: 1fr; } }
         .syntax-guide { background: var(--accent-light); padding: var(--spacing-lg); border-radius: var(--radius-lg); margin: var(--spacing-2xl) 0; }
         .syntax-guide code { background: var(--white); padding: 2px 6px; border-radius: 3px; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature { padding: 1.5rem; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #10b981; }
+        .feature h3 { font-size: 1rem; margin-bottom: 0.5rem; color: #1a1a1a; }
+        .feature p { font-size: 0.9rem; color: #666; margin: 0; }
+
+        .info-section { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; border: 1px solid #e0e0e0; }
+        .info-section h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #1a1a1a; }
+        .info-section ul { list-style: none; padding-left: 0; }
+        .info-section li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: #555; }
+        .info-section li:before { content: "✓"; position: absolute; left: 0; color: #16a34a; font-weight: bold; }
+
+        .faq-section { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+        .faq-item { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; }
+        .faq-item:hover { border-color: #10b981; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1); }
+        .faq-question { padding: 1.25rem; font-weight: 600; color: #1a1a1a; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .faq-toggle { color: #10b981; font-size: 1.5rem; font-weight: bold; transition: transform 0.3s ease; }
+        .faq-answer { padding: 0 1.25rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: #555; line-height: 1.6; }
+        .faq-item.active .faq-answer { padding: 0 1.25rem 1.25rem; max-height: 500px; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); }
     </style>
 </head>
 <body>
     <nav>
         <div class="container">
-            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+            <div class="logo"><a href="/">📝 Markdown to HTML</a></div>
         </div>
     </nav>
     <div class="header">
@@ -44,8 +64,74 @@
         <div class="breadcrumb">
             <span><a href="/">Home</a></span>
             <span> → </span>
+            <span>Tools</span>
+            <span> → </span>
             <span>Markdown to HTML</span>
         </div>
+
+        <section>
+            <div class="card">
+                <h2>What is Markdown to HTML Conversion?</h2>
+                <p>Markdown is a lightweight markup language designed to be easy to read and write. Converting Markdown to HTML transforms this simple, readable format into the standardized HTML markup that web browsers understand and display. Markdown uses intuitive symbols like # for headings, ** for bold, and * for italics, making it much easier to write formatted content compared to writing HTML directly.</p>
+                <p>Our Markdown to HTML converter instantly transforms your Markdown text into valid HTML code. This is perfect for bloggers, documentation writers, developers, and content creators who prefer writing in Markdown but need HTML output for their databases, websites, or content management systems.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h2>Who Should Use This Tool?</h2>
+                <p>The Markdown to HTML converter is ideal for:</p>
+                <div class="features" style="margin: 1.5rem 0;">
+                    <div class="feature">
+                        <h3>✍️ Content Writers & Bloggers</h3>
+                        <p>Write in easy-to-read Markdown and convert to HTML for publishing on websites.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>👨‍💻 Developers & Engineers</h3>
+                        <p>Convert documentation, README files, and technical guides from Markdown to HTML.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📚 API Documenters</h3>
+                        <p>Convert API documentation written in Markdown to HTML for web display.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🎓 Educators</h3>
+                        <p>Create course materials and lecture notes in Markdown and convert to HTML.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📰 Content Managers</h3>
+                        <p>Manage content in Markdown and convert to HTML for CMS systems.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🚀 Anyone Needing HTML Output</h3>
+                        <p>Quickly convert any Markdown text to proper HTML formatting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h2>How This Tool Helps You</h2>
+                <h3>Write Faster in Markdown</h3>
+                <p>Markdown syntax is simpler and faster to type than HTML. No closing tags, no angle brackets—just simple symbols.</p>
+
+                <h3>Get Clean, Valid HTML</h3>
+                <p>Our converter produces clean, standards-compliant HTML that works across all browsers and platforms.</p>
+
+                <h3>Perfect for Multiple Platforms</h3>
+                <p>Write once in Markdown, convert to HTML for websites, email, documentation, or any platform that needs HTML.</p>
+
+                <h3>Focus on Content, Not Formatting</h3>
+                <p>Markdown lets you focus on what you're writing. The converter handles all the HTML formatting automatically.</p>
+
+                <h3>Easy Version Control</h3>
+                <p>Markdown files are text-based and work perfectly with Git and other version control systems.</p>
+
+                <h3>Live Preview</h3>
+                <p>See your HTML output instantly as you type. No need to guess how your Markdown will look.</p>
+            </div>
+        </section>
         <section>
             <div class="controls">
                 <button class="btn" onclick="copyHTML()">📋 Copy HTML</button>
@@ -95,6 +181,105 @@ Visit [Free Tools](https://tools.youant.me) for more.
             </ul>
         </section>
     </main>
+
+    <main class="container" style="margin-top: 0;">
+        <section>
+            <div class="card">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <div class="faq-question">❓ What exactly is Markdown?</div>
+                        <div class="faq-answer">Markdown is a simple, lightweight markup language created in 2004 by John Gruber. It uses easy-to-read symbols to format text. For example, # creates a heading, ** makes text bold, and * makes text italic. It's designed to be readable even as plain text before conversion.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🔄 How does the conversion work?</div>
+                        <div class="faq-answer">The converter uses a JavaScript library called "marked.js" to parse your Markdown syntax and convert it to corresponding HTML tags. The process is instant—as you type Markdown, the HTML preview updates in real-time.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🔒 Is my Markdown data stored?</div>
+                        <div class="faq-answer">No. All conversion happens in your browser. Your Markdown text is never transmitted to any servers. It's completely private and secure.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">📥 Can I download the HTML?</div>
+                        <div class="faq-answer">Yes. Click the "Download HTML" button to save your converted HTML as a complete, ready-to-use HTML file that you can open in any browser.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">✂️ Can I copy just the HTML code?</div>
+                        <div class="faq-answer">Yes. Click "Copy HTML" to copy the generated HTML code to your clipboard. You can then paste it anywhere—into your code editor, CMS, or email.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🖼️ Can I convert Markdown with images?</div>
+                        <div class="faq-answer">Yes. Use Markdown image syntax: ![alt text](image-url). The converter will generate HTML img tags with the URLs you provide.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🔗 What about links in Markdown?</div>
+                        <div class="faq-answer">Markdown links use the syntax: [link text](url). This converts to proper HTML anchor tags &lt;a href="url"&gt;link text&lt;/a&gt;.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">📝 Can I include code blocks?</div>
+                        <div class="faq-answer">Yes. Use triple backticks (```) to create code blocks. Specify the language (javascript, python, etc.) for syntax highlighting support in your HTML.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🌐 Is the output mobile-friendly?</div>
+                        <div class="faq-answer">The HTML output is basic and doesn't include styling. Add your own CSS to make it responsive. The generated HTML is clean and ready for any styling framework.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">📱 Does this work on mobile devices?</div>
+                        <div class="faq-answer">Yes, the converter is fully responsive and works on phones and tablets. The split-screen layout will stack on smaller screens for better usability.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">💾 Can I save my work?</div>
+                        <div class="faq-answer">Use the Download button to save as HTML. The editor doesn't have persistent storage, so always download important work.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">⚙️ Can I customize the HTML output?</div>
+                        <div class="faq-answer">The converter produces standard HTML. You can copy it and manually edit, or use CSS to style it however you want.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🔗 How do I create GitHub-style Markdown tables?</div>
+                        <div class="faq-answer">Use this syntax: | Header 1 | Header 2 | Then use |---|---| for the header separator. The converter supports standard table syntax.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">✨ What Markdown features are supported?</div>
+                        <div class="faq-answer">Headers, bold, italic, links, images, lists, code blocks, blockquotes, horizontal rules, and more. Check the syntax guide below for complete feature list.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">🧪 Can I use this for my Static Site Generator?</div>
+                        <div class="faq-answer">While this tool is great for quick conversions, most static site generators (Jekyll, Hugo, Gatsby) handle Markdown conversion automatically as part of their build process.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h2>More Information & Tips</h2>
+
+                <h3>Best Practices for Writing Markdown</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Use Consistent Formatting:</strong> Pick a style and stick with it. Use either # heading or = heading, but not both in the same document.</li>
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Add Whitespace:</strong> Use blank lines between sections for readability. Markdown formatters expect these breaks.</li>
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Use Descriptive Link Text:</strong> Instead of "click here", use descriptive text like "read more about Markdown syntax" for better accessibility and SEO.</li>
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Escape Special Characters:</strong> If you need to display * or # literally, use a backslash: \* or \#</li>
+                    <li style="padding: 0.75rem 0; padding-left: 1.5rem; position: relative;"><strong>Test Your HTML Output:</strong> Always review the generated HTML to ensure it renders as expected in your target platform.</li>
+                </ul>
+
+                <h3>Common Use Cases</h3>
+                <p><strong>Blog Posts:</strong> Write blog content in Markdown, convert to HTML, and paste into your blog platform or CMS.</p>
+                <p><strong>Documentation:</strong> Technical documentation is often written in Markdown. Convert to HTML for web publishing.</p>
+                <p><strong>Email Content:</strong> Write a newsletter in Markdown, convert to HTML, and send as email.</p>
+                <p><strong>API Documentation:</strong> Many developers document APIs in Markdown and convert to HTML for web display.</p>
+                <p><strong>README Files:</strong> GitHub README.md files use Markdown. Convert to HTML for portfolio websites.</p>
+
+                <h3>Related Tools That Work Great Together</h3>
+                <p>Enhance your content creation workflow:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.5rem 0;"><strong>→ <a href="https://tools.youant.me/word-counter/" style="color: #10b981; text-decoration: none;">Word Counter</a>:</strong> Count words in your Markdown content to meet length requirements.</li>
+                    <li style="padding: 0.5rem 0;"><strong>→ <a href="https://tools.youant.me/json-formatter/" style="color: #10b981; text-decoration: none;">JSON Formatter</a>:</strong> Format JSON data you might need to embed in your HTML.</li>
+                    <li style="padding: 0.5rem 0;"><strong>→ <a href="https://tools.youant.me/code-runner/" style="color: #10b981; text-decoration: none;">Code Runner</a>:</strong> Test the HTML output to see how it renders in a browser.</li>
+                </ul>
+            </div>
+        </section>
     <footer>
         <div class="container text-center">
             <p>&copy; 2026 Free Tools. Convert Markdown to HTML instantly.</p>
@@ -149,6 +334,13 @@ ${preview.innerHTML}
 
         mdInput.addEventListener('input', updatePreview);
         updatePreview();
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.closest('.faq-item').classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>

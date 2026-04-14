@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Free unit converter. Convert temperature, distance, weight, volume, speed instantly. 20+ unit types supported.">
     <meta name="keywords" content="unit converter, convert temperature, convert weight, convert distance, online converter">
+    <meta name="keywords" content="unit converter, convert temperature, convert weight, convert distance, online converter">
     <meta name="theme-color" content="#0f1419">
     <title>Unit Converter - Free Online Conversion Tool</title>
     <link rel="canonical" href="https://tools.youant.me/unit-converter/">
@@ -17,6 +18,25 @@
         .converter-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md); align-items: end; }
         .converter-row input { width: 100%; }
         .faq-section { max-width: 900px; margin: var(--spacing-2xl) auto; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature { padding: 1.5rem; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #1a1a1a; }
+        .feature h3 { font-size: 1rem; margin-bottom: 0.5rem; color: #1a1a1a; }
+        .feature p { font-size: 0.9rem; color: #666; margin: 0; }
+        .info-section { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; border: 1px solid #e0e0e0; }
+        .info-section h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #1a1a1a; }
+        .info-section ul { list-style: none; padding-left: 0; }
+        .info-section li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: #555; }
+        .info-section li:before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; }
+        .faq-item { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease; }
+        .faq-item.active { border-color: #10b981; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1); }
+        .faq-question { padding: 1.25rem; background: #f5f5f5; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #1a1a1a; user-select: none; transition: all 0.2s ease; }
+        .faq-question:hover { background: #efefef; }
+        .faq-toggle { font-size: 1.5rem; font-weight: 700; color: #10b981; transition: transform 0.3s ease; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); }
+        .faq-answer { padding: 1.25rem; background: white; color: #555; line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; padding: 1.25rem; }
+        .section-title { font-size: 1.8rem; margin-bottom: 1.5rem; color: #1a1a1a; text-align: center; }
+        .breadcrumb { margin: 2rem 0; animation: fadeInUp 0.6s ease; }
     </style>
 </head>
 <body>
@@ -37,21 +57,198 @@
             <span> → </span>
             <span>Unit Converter</span>
         </div>
+
+        <section>
+            <h2>What is the Unit Converter?</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin: 1rem 0; color: #555;">The Unit Converter is a free online tool that converts between 20+ unit types instantly with real-time results. Whether you're cooking, traveling, building, or studying, this tool quickly converts temperature, distance, weight, volume, speed, and more. All conversions use standardized international formulas for maximum accuracy, and everything happens in your browser.</p>
+        </section>
+
+        <section>
+            <h2>Who Should Use It?</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>🌍 Travelers</h3>
+                    <p>Convert temperatures, distances, weights, and currency quickly when traveling internationally. Essential for understanding local measurements.</p>
+                </div>
+                <div class="feature">
+                    <h3>👨‍🍳 Cooks & Chefs</h3>
+                    <p>Convert recipe ingredients between cups, grams, ounces, and milliliters. Adapt recipes from different countries instantly.</p>
+                </div>
+                <div class="feature">
+                    <h3>📚 Students</h3>
+                    <p>Verify homework calculations and understand unit conversions across science, math, and engineering courses.</p>
+                </div>
+                <div class="feature">
+                    <h3>👷 Engineers & Builders</h3>
+                    <p>Convert measurements for construction, architecture, and project planning. Switch between metric and imperial systems.</p>
+                </div>
+                <div class="feature">
+                    <h3>🏋️ Fitness Professionals</h3>
+                    <p>Convert weights, distances, and speeds for training programs. Track metrics in different units across regions.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔬 Scientists & Researchers</h3>
+                    <p>Perform accurate conversions for experiments and data analysis across different measurement systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>20+ Unit Types:</strong> Temperature (°C, °F, K), Distance (m, km, mi, ft), Weight (kg, lb, g, oz), Volume (L, ml, gal, cups), Speed (m/s, km/h, mph, knots)</li>
+                <li><strong>Real-Time Conversion:</strong> Results update instantly as you type without clicking buttons</li>
+                <li><strong>Bidirectional Conversion:</strong> Convert from any unit to any other unit in your category</li>
+                <li><strong>High Precision:</strong> Accurate to 6 decimal places using standardized conversion formulas</li>
+                <li><strong>Multiple Categories:</strong> Organized by conversion type for easy navigation</li>
+                <li><strong>No Registration:</strong> Use immediately with no signup or account creation</li>
+                <li><strong>Unlimited Conversions:</strong> Convert as many times as needed with no limits</li>
+                <li><strong>100% Private:</strong> All conversions happen in your browser with no server upload</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Who It Helps & Common Uses</h2>
+            <ul>
+                <li><strong>International Communication:</strong> Instantly understand measurements from people worldwide</li>
+                <li><strong>Recipe Adaptation:</strong> Convert recipe quantities to units you have available</li>
+                <li><strong>Academic Success:</strong> Verify conversions for homework and tests</li>
+                <li><strong>Project Planning:</strong> Convert blueprints and specifications between systems</li>
+                <li><strong>Travel Preparation:</strong> Understand local measurements before arrival</li>
+                <li><strong>Scientific Accuracy:</strong> Ensure precision in experiments and calculations</li>
+                <li><strong>Time Savings:</strong> Convert faster than manual calculations</li>
+                <li><strong>Error Prevention:</strong> Reduce mistakes in important conversions</li>
+            </ul>
+        </section>
+
         <section>
             <div class="converter-grid" id="converters"></div>
         </section>
         <section class="faq-section">
-            <h2 class="section-title">FAQ</h2>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
             <div class="faq-item">
-                <div class="faq-question">What conversions are available?</div>
+                <div class="faq-question">What unit conversions are available?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">Temperature (C, F, K), Distance (m, km, mi), Weight (kg, lb, g), Volume (L, ml, gal), Speed (m/s, km/h, mph)</div>
+                <div class="faq-answer">Temperature (Celsius, Fahrenheit, Kelvin), Distance (Meters, Kilometers, Miles, Feet, Inches), Weight (Kilograms, Pounds, Grams, Ounces), Volume (Liters, Milliliters, Gallons, Cups), Speed (Meters/second, KM/h, Miles/h, Knots).</div>
             </div>
+
             <div class="faq-item">
-                <div class="faq-question">How accurate are conversions?</div>
+                <div class="faq-question">How accurate are the conversions?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">Conversions use standardized international conversion formulas for maximum accuracy.</div>
+                <div class="faq-answer">All conversions use standardized international conversion formulas accurate to 6 decimal places. Results are precise enough for academic, scientific, and professional use.</div>
             </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's the difference between Celsius, Fahrenheit, and Kelvin?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Celsius (°C) is used in most countries, Fahrenheit (°F) primarily in the US, and Kelvin (K) in science. This tool converts instantly between all three temperature scales.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why do I need to convert units?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Different countries use different measurement systems. The US uses imperial (pounds, miles, Fahrenheit) while most of the world uses metric (kilograms, kilometers, Celsius). Conversion is essential for international communication.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I convert between miles and kilometers?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! Select "Distance" converter, enter your value in miles, and select kilometers. The tool converts instantly. 1 mile = 1.60934 kilometers.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I convert cooking measurements?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Use the Volume converter to convert cups to milliliters/liters or gallons to liters. For weight-based conversions, use the Weight converter (grams, pounds, ounces).</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What does the speed converter do?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Convert between Meters/second (m/s), Kilometers/hour (km/h), Miles/hour (mph), and Knots. Essential for understanding speed limits, weather reports, and aviation measurements.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is this tool secure?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes, 100% secure. All conversions happen in your browser using JavaScript. No data is sent to servers, and nothing is logged or tracked.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use this offline?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! Once the page loads, you can use all conversions offline. No internet connection is needed after the page loads since all processing happens in your browser.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's the metric system?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">The metric system is an international standard of measurement using base-10 (decimals). It includes meters (distance), kilograms (weight), liters (volume), and Celsius (temperature).</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's the imperial system?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">The imperial system, primarily used in the United States, includes inches/feet/miles (distance), pounds/ounces (weight), gallons/cups (volume), and Fahrenheit (temperature).</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How many ounces in a pound?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">There are 16 ounces in 1 pound. Use the Weight converter to easily convert between pounds and ounces or switch to metric (kilograms, grams).</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's the freezing point of water?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Water freezes at 0°C (32°F or 273.15K). Use the Temperature converter to understand reference points between scales.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I convert absolute zero?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! Absolute zero is 0K (-273.15°C or -459.67°F). The tool handles extreme temperatures and converts between all three scales accurately.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I convert body temperature?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Normal body temperature is 37°C (98.6°F). Use the Temperature converter to understand fever temperatures or convert health readings between scales.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use this for homework and studies?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Absolutely! This tool is perfect for verifying homework conversions, studying unit conversion concepts, and understanding different measurement systems in science and math classes.</div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>More Information & Tips</h2>
+            <ul>
+                <li><strong>Memorize Key Conversions:</strong> Know common conversions like 1 mile = 1.6 km, 1 pound = 0.45 kg, 0°C = 32°F for quick mental calculations.</li>
+                <li><strong>Use for Cooking:</strong> Keep this tool open while cooking recipes from different countries to ensure correct ingredient amounts.</li>
+                <li><strong>Travel Preparation:</strong> Bookmark this tool before traveling to quickly understand local temperatures, distances, and weights.</li>
+                <li><strong>Speed Limit Understanding:</strong> Use the Speed converter to understand speed limits when driving in different countries.</li>
+                <li><strong>Weather Understanding:</strong> Convert weather temperatures when reading international forecasts to understand conditions better.</li>
+                <li><strong>Scientific Accuracy:</strong> Always use this tool for scientific calculations to ensure standardized formula accuracy.</li>
+                <li><strong>Volume Conversions:</strong> Remember that 1 liter = 1000 milliliters = 0.264 gallons for quick estimations.</li>
+                <li><strong>Weight Basics:</strong> 1 kilogram = 2.2 pounds, which helps estimate weights across scales.</li>
+                <li><strong>Altitude Conversions:</strong> Convert altitude measurements between feet and meters for aviation or hiking.</li>
+                <li><strong>Real-Time Updates:</strong> This tool updates as you type, so you see results immediately without clicking buttons.</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Related Tools</h2>
+            <p style="margin-bottom: 1rem;">Explore these other free utility tools:</p>
+            <ul>
+                <li><strong><a href="https://tools.youant.me/password-generator/" target="_blank" rel="noopener">Password Generator</a>:</strong> Create strong, secure random passwords instantly</li>
+                <li><strong><a href="https://tools.youant.me/json-formatter/" target="_blank" rel="noopener">JSON Formatter</a>:</strong> Format and validate JSON data for development</li>
+                <li><strong><a href="https://tools.youant.me/qr-code-generator/" target="_blank" rel="noopener">QR Code Generator</a>:</strong> Generate QR codes from text or URLs</li>
+                <li><strong><a href="https://tools.youant.me/base64-encoder/" target="_blank" rel="noopener">Base64 Encoder/Decoder</a>:</strong> Encode and decode Base64 data</li>
+            </ul>
         </section>
     </main>
     <footer>

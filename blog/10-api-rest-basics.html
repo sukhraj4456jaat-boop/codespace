@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API development made easy. Learn JSON and REST basics for building modern APIs with practical examples and best practices.">
+    <meta name="keywords" content="api development, json api, rest api guide, rest basics, build api, api design, json formatting">
+    <meta name="theme-color" content="#0f1419">
+    <meta name="author" content="Free Tools Platform">
+
+    <title>API Development Made Easy: JSON and REST Basics</title>
+    <link rel="canonical" href="https://tools.youant.me/blog/10-api-rest-basics.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%2310b981'>🔌</text></svg>">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta property="og:title" content="API Development Made Easy: JSON and REST Basics">
+    <meta property="og:description" content="Complete guide to API development. Learn REST principles and JSON formatting for building professional APIs.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tools.youant.me/blog/10-api-rest-basics.html">
+    <meta property="og:image" content="https://tools.youant.me/images/og-image.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="API Development Made Easy">
+    <meta name="twitter:description" content="Master REST APIs and JSON for development">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "API Development Made Easy: JSON and REST Basics",
+      "description": "Complete guide to REST API development and JSON formatting for modern applications",
+      "image": "https://tools.youant.me/images/og-image.webp",
+      "datePublished": "2026-04-14",
+      "author": {
+        "@type": "Organization",
+        "name": "Free Tools Platform"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Free Tools Platform"
+      }
+    }
+    </script>
+
+    <style>
+        .article-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 1rem 0 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        .article-content h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .article-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .code-example {
+            background: var(--primary-dark);
+            color: #10b981;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            word-break: break-word;
+        }
+
+        .highlight-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        article aside {
+            background: #f9f9f9;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        article aside h3 {
+            margin-top: 0;
+        }
+
+        article aside ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        article aside li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        article aside li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        article aside a {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .article-meta { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="container">
+            <h1>🔌 API Development Made Easy: JSON and REST Basics</h1>
+            <p>Master REST API development with professional JSON handling</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="/">Home</a> → <a href="/blog/">Blog</a> → API Development Made Easy
+        </div>
+
+        <article>
+            <div class="article-meta">
+                <span>📅 April 14, 2026</span>
+                <span>⏱️ 11 min read</span>
+                <span>👤 Free Tools Team</span>
+            </div>
+
+            <div class="article-content">
+                <p>APIs (Application Programming Interfaces) are the backbone of modern software development. Whether you're building web applications, mobile apps, or enterprise systems, you'll interact with APIs constantly. Yet many developers feel uncertain about API development fundamentals, struggling with REST principles, JSON formatting, and proper API design. This comprehensive guide will demystify API development, teaching you REST principles, JSON best practices, and real-world patterns used by leading technology companies. By the end, you'll understand how to design, build, and consume APIs professionally.</p>
+
+                <h2>🌐 What is an API?</h2>
+                <p>An API (Application Programming Interface) is a contract between software applications that defines how they communicate. Think of an API like a restaurant menu: customers don't need to know how the kitchen works (the implementation), they just order from the menu (the API). The restaurant handles the complexity and delivers the result. Similarly, APIs abstract complexity, allowing applications to request services without understanding implementation details.</p>
+
+                <p>APIs enable the connected world we live in. When you check weather on your phone, use social media, pay online, or integrate third-party services into applications, APIs are handling the communication behind the scenes. Understanding API development is essential for modern software developers.</p>
+
+                <h2>📘 Understanding REST</h2>
+
+                <h3>What is REST?</h3>
+                <p>REST (Representational State Transfer) is an architectural style for building web APIs. Introduced by Roy Fielding in 2000, REST provides principles for building scalable, maintainable web services. Most modern APIs follow REST principles, making them a standard you must understand.</p>
+
+                <h3>REST Principles</h3>
+                <p><strong>Client-Server Architecture:</strong> APIs separate clients (applications requesting data) from servers (applications providing data). This separation allows independent evolution of both.</p>
+
+                <p><strong>Statelessness:</strong> Each API request contains all information needed for the server to process it. The server doesn't store client context between requests. This enables scalability and reliability.</p>
+
+                <p><strong>Uniform Interface:</strong> APIs have consistent naming conventions, response formats, and behavior patterns, making them intuitive and predictable.</p>
+
+                <p><strong>Resource-Oriented:</strong> REST treats everything as resources (users, posts, comments) accessible through URLs. Operations are performed using standard HTTP methods.</p>
+
+                <h2>🔄 HTTP Methods in REST APIs</h2>
+
+                <p>REST uses HTTP methods to define operations on resources. Understanding these is crucial:</p>
+
+                <p><strong>GET:</strong> Retrieves data. Safe (doesn't modify data) and idempotent (same request gives same result). Use for fetching resources.</p>
+
+                <div class="code-example">GET /api/users/123
+→ Returns user with ID 123
+
+GET /api/posts
+→ Returns list of all posts</div>
+
+                <p><strong>POST:</strong> Creates new resources. Not idempotent (multiple identical requests create multiple resources). Use for creating data.</p>
+
+                <div class="code-example">POST /api/users
+Body: {"name": "John", "email": "john@example.com"}
+→ Creates new user and returns it</div>
+
+                <p><strong>PUT:</strong> Replaces entire resource. Idempotent (multiple identical requests produce same result). Use for full updates.</p>
+
+                <div class="code-example">PUT /api/users/123
+Body: {"name": "Jane", "email": "jane@example.com"}
+→ Replaces entire user 123</div>
+
+                <p><strong>PATCH:</strong> Partially updates resource. Use for partial updates without replacing entire resource.</p>
+
+                <div class="code-example">PATCH /api/users/123
+Body: {"name": "Jane"}
+→ Updates only name, keeps other fields</div>
+
+                <p><strong>DELETE:</strong> Deletes resource. Idempotent. Use for removing data.</p>
+
+                <div class="code-example">DELETE /api/users/123
+→ Deletes user with ID 123</div>
+
+                <h2>📝 JSON in REST APIs</h2>
+
+                <p>JSON is the standard format for REST API requests and responses. Properly formatted JSON is critical for API success. For comprehensive JSON guidance, see our detailed <a href="/blog/01-json-api-formatting.html">JSON formatting guide</a>.</p>
+
+                <h3>Request JSON Example</h3>
+                <div class="code-example">POST /api/posts
+{
+  "title": "Getting Started with APIs",
+  "content": "APIs are essential for modern applications...",
+  "tags": ["api", "rest", "json"],
+  "published": true,
+  "author": {
+    "name": "John Developer",
+    "email": "john@example.com"
+  }
+}</div>
+
+                <h3>Response JSON Example</h3>
+                <div class="code-example">{
+  "success": true,
+  "data": {
+    "id": 42,
+    "title": "Getting Started with APIs",
+    "content": "APIs are essential...",
+    "tags": ["api", "rest", "json"],
+    "published": true,
+    "createdAt": "2026-04-14T10:30:00Z",
+    "author": {
+      "id": 7,
+      "name": "John Developer",
+      "email": "john@example.com"
+    }
+  },
+  "message": "Post created successfully"
+}</div>
+
+                <div class="highlight-box">
+                    <p><strong>💡 Pro Tip:</strong> Use our <a href="/json-formatter/">JSON Formatter tool</a> to validate all API requests and responses. Catching JSON formatting errors early prevents API integration problems.</p>
+                </div>
+
+                <h2>🏗️ RESTful URL Design</h2>
+
+                <p>URL design significantly impacts API usability. Following conventions makes APIs intuitive:</p>
+
+                <h3>Good URL Design Principles</h3>
+                <div class="code-example">// Good: Nouns for resources, clear hierarchy
+GET /api/users                    → List all users
+GET /api/users/123                → Get user 123
+GET /api/users/123/posts          → Get all posts by user 123
+GET /api/posts/456/comments       → Get comments on post 456
+DELETE /api/users/123             → Delete user 123
+
+// Bad: Verbs in URLs (not RESTful)
+GET /api/getUsers                 → Should use GET /api/users
+POST /api/createPost              → Should use POST /api/posts
+PUT /api/updateUser/123           → Should use PUT /api/users/123</div>
+
+                <h2>🔒 Status Codes and Error Handling</h2>
+
+                <p>HTTP status codes communicate operation results. Use appropriate codes consistently:</p>
+
+                <p><strong>2xx Success:</strong> 200 OK (request succeeded), 201 Created (resource created), 204 No Content (success with no data)</p>
+
+                <p><strong>3xx Redirection:</strong> 301 Moved Permanently, 302 Found, 304 Not Modified</p>
+
+                <p><strong>4xx Client Errors:</strong> 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found</p>
+
+                <p><strong>5xx Server Errors:</strong> 500 Internal Server Error, 503 Service Unavailable</p>
+
+                <h3>Error Response Example</h3>
+                <div class="code-example">{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Request validation failed",
+    "details": [
+      {
+        "field": "email",
+        "message": "Invalid email format"
+      },
+      {
+        "field": "password",
+        "message": "Password must be at least 8 characters"
+      }
+    ]
+  }
+}</div>
+
+                <h2>🔑 Authentication and Authorization</h2>
+
+                <p>Securing APIs is essential. Common approaches include:</p>
+
+                <p><strong>API Keys:</strong> Simple tokens sent with requests. Easy to implement but less secure for sensitive operations.</p>
+
+                <p><strong>OAuth 2.0:</strong> Industry standard allowing secure third-party access without sharing passwords. More complex but highly secure.</p>
+
+                <p><strong>JWT (JSON Web Tokens):</strong> Stateless authentication using signed tokens. Popular for modern applications.</p>
+
+                <h2>📊 Versioning Your API</h2>
+
+                <p>APIs evolve. Versioning allows backward compatibility while adding new features:</p>
+
+                <div class="code-example">// URL versioning (common)
+GET /api/v1/users
+GET /api/v2/users
+
+// Header versioning (cleaner URLs)
+GET /api/users
+Header: API-Version: 2
+
+// Parameter versioning
+GET /api/users?version=2</div>
+
+                <h2>🚀 Testing Your API</h2>
+
+                <p>Before deploying, thoroughly test your API. Tools like Postman, Insomnia, or curl make testing straightforward. Test all endpoints, error scenarios, edge cases, and different HTTP methods. Our <a href="/code-runner/">Code Runner tool</a> allows testing API calls and validating responses instantly.</p>
+
+                <div class="highlight-box">
+                    <p><strong>✨ Testing Tip:</strong> Use our <a href="/code-runner/">Code Runner</a> to test API calls with JavaScript. You can verify responses, test error handling, and iterate quickly during development.</p>
+                </div>
+
+                <h2>📚 API Documentation</h2>
+
+                <p>Good documentation is as important as the API itself. Document every endpoint, including:</p>
+                <ul style="margin-left: 2rem;">
+                    <li>What the endpoint does</li>
+                    <li>HTTP method and URL path</li>
+                    <li>Required parameters and their formats</li>
+                    <li>Response format with examples</li>
+                    <li>Possible error codes and meanings</li>
+                    <li>Authentication requirements</li>
+                    <li>Rate limiting information</li>
+                </ul>
+
+                <p>Tools like Swagger/OpenAPI help document APIs systematically, making it easy for other developers to understand and use your API.</p>
+
+                <h2>🔗 Consuming REST APIs</h2>
+
+                <p>Understanding how to consume APIs is as important as building them. Most programming languages provide HTTP libraries for making API calls. Here's a conceptual example:</p>
+
+                <div class="code-example">// Conceptual API consumption
+1. Construct URL: /api/users/123
+2. Set HTTP method: GET
+3. Add headers (auth, content-type)
+4. Make request
+5. Receive response (JSON)
+6. Parse JSON
+7. Handle success or error
+8. Update application state</div>
+
+                <h2>💡 Best Practices for API Development</h2>
+
+                <p><strong>Be RESTful:</strong> Follow REST principles consistently. Don't mix paradigms.</p>
+
+                <p><strong>Use HTTPS:</strong> Always encrypt data in transit. Never send sensitive data over HTTP.</p>
+
+                <p><strong>Rate Limiting:</strong> Protect your API from abuse. Implement rate limits and inform clients.</p>
+
+                <p><strong>Pagination:</strong> Never return huge datasets. Implement pagination for large result sets.</p>
+
+                <p><strong>Consistent Response Format:</strong> Use consistent structure for all responses. This makes client development predictable.</p>
+
+                <p><strong>Proper Error Handling:</strong> Provide clear, helpful error messages. Help developers debug quickly.</p>
+
+                <h2>🎓 Learning Path for API Development</h2>
+
+                <p>Start with understanding HTTP and REST principles. Learn JSON thoroughly using our <a href="/blog/01-json-api-formatting.html">JSON guide</a>. Practice building simple APIs. Study production APIs from companies like GitHub, Twitter, or Stripe to understand real-world design patterns. Gradually build more complex APIs with authentication, error handling, and proper versioning. Read API design books and follow communities discussing best practices.</p>
+
+                <h2>📚 Conclusion</h2>
+
+                <p>APIs are fundamental to modern development, and REST with JSON is the industry standard for good reason. Understanding REST principles, proper JSON formatting, appropriate HTTP methods, and API design best practices enables you to build professional, maintainable APIs. Start by mastering the fundamentals covered here—HTTP methods, JSON formatting (use our <a href="/json-formatter/">JSON Formatter</a>), URL design, and status codes. As you gain experience, add authentication, versioning, documentation, and advanced patterns. Remember that good API design is an investment that pays dividends as your applications grow and integrate with other systems. The time spent learning these fundamentals now will accelerate your development throughout your career.</p>
+            </div>
+
+            <aside>
+                <h3>📚 You Might Also Like</h3>
+                <ul>
+                    <li><a href="/blog/01-json-api-formatting.html">How to Format JSON for APIs</a></li>
+                    <li><a href="/blog/06-web-development-beginners.html">Web Development for Beginners: HTML, CSS, JavaScript</a></li>
+                    <li><a href="/blog/07-base64-encoding.html">What is Base64 Encoding and Why You Need It</a></li>
+                </ul>
+            </aside>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h4>Tools</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="/word-counter/">Word Counter</a></li>
+                    <li><a href="/code-runner/">Code Runner</a></li>
+                    <li><a href="/password-generator/">Password Generator</a></li>
+                    <li><a href="/json-formatter/">JSON Formatter</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>More Tools</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="/qr-code-generator/">QR Code Generator</a></li>
+                    <li><a href="/unit-converter/">Unit Converter</a></li>
+                    <li><a href="/base64-encoder/">Base64 Encoder</a></li>
+                    <li><a href="/markdown-to-html/">Markdown to HTML</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Resources</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/resources/faq.html">FAQ</a></li>
+                    <li><a href="/resources/about.html">About</a></li>
+                    <li><a href="/resources/privacy.html">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Premium Free Tools. All rights reserved. Designed for simplicity, speed, and privacy.</p>
+        </div>
+    </footer>
+</body>
+</html>

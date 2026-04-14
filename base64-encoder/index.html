@@ -17,6 +17,26 @@
         .b64-panel textarea { min-height: 300px; }
         .b64-controls { display: flex; gap: var(--spacing-md); margin: var(--spacing-lg) 0; flex-wrap: wrap; }
         .b64-controls .btn { flex: 1; min-width: 120px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature { padding: 1.5rem; background: #f5f5f5; border-radius: 8px; border-left: 4px solid #1a1a1a; }
+        .feature h3 { font-size: 1rem; margin-bottom: 0.5rem; color: #1a1a1a; }
+        .feature p { font-size: 0.9rem; color: #666; margin: 0; }
+        .info-section { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; border: 1px solid #e0e0e0; }
+        .info-section h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #1a1a1a; }
+        .info-section ul { list-style: none; padding-left: 0; }
+        .info-section li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: #555; }
+        .info-section li:before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; }
+        .faq-section { max-width: 900px; margin: 2rem auto; }
+        .faq-item { background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease; }
+        .faq-item.active { border-color: #10b981; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1); }
+        .faq-question { padding: 1.25rem; background: #f5f5f5; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #1a1a1a; user-select: none; transition: all 0.2s ease; }
+        .faq-question:hover { background: #efefef; }
+        .faq-toggle { font-size: 1.5rem; font-weight: 700; color: #10b981; transition: transform 0.3s ease; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); }
+        .faq-answer { padding: 1.25rem; background: white; color: #555; line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; padding: 1.25rem; }
+        .section-title { font-size: 1.8rem; margin-bottom: 1.5rem; color: #1a1a1a; text-align: center; }
+        .breadcrumb { margin: 2rem 0; animation: fadeInUp 0.6s ease; }
         @media (max-width: 1024px) { .b64-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -38,6 +58,86 @@
             <span> → </span>
             <span>Base64 Encoder</span>
         </div>
+
+        <section>
+            <h2>What is Base64 Encoding?</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin: 1rem 0; color: #555;">Base64 is a text encoding standard that converts binary data into an ASCII string format using 64 printable characters (A-Z, a-z, 0-9, +, /). It's the standard method for transmitting binary data over text-only systems like email, HTTP, and JSON APIs. This tool instantly encodes plain text to Base64 and decodes Base64 back to text, all in your browser for complete privacy.</p>
+        </section>
+
+        <section>
+            <h2>Who Should Use It?</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>👨‍💻 Web Developers</h3>
+                    <p>Encode API authentication credentials, embed images in HTML/CSS, and handle data URIs in web applications.</p>
+                </div>
+                <div class="feature">
+                    <h3>📧 Email & Communication</h3>
+                    <p>Handle email attachments and secure data transmission where binary data must be text-encoded.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔐 Security Professionals</h3>
+                    <p>Work with authentication tokens, API keys, and secure credential transmission between systems.</p>
+                </div>
+                <div class="feature">
+                    <h3>📱 Mobile App Developers</h3>
+                    <p>Handle image encoding for APIs, manage binary data in JSON payloads, and work with authentication tokens.</p>
+                </div>
+                <div class="feature">
+                    <h3>🗄️ Database Administrators</h3>
+                    <p>Store and retrieve binary data in text-based database fields and handle data migrations.</p>
+                </div>
+                <div class="feature">
+                    <h3>📡 API Integration Teams</h3>
+                    <p>Encode/decode payloads for REST APIs, handle authentication, and debug data transmission issues.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Who It Helps & Key Benefits</h2>
+            <ul>
+                <li><strong>Universal Data Format:</strong> Base64 works across all systems and programming languages</li>
+                <li><strong>Email Compatibility:</strong> Send binary attachments through text-only email systems</li>
+                <li><strong>API Integration:</strong> Transmit binary data in JSON APIs that only support text</li>
+                <li><strong>Security:</strong> Obscure data in transmission (not encryption, but deterrent against casual inspection)</li>
+                <li><strong>Web Embedding:</strong> Embed images directly in HTML/CSS without separate file requests</li>
+                <li><strong>Mobile Optimization:</strong> Reduce HTTP requests by embedding images as Base64</li>
+                <li><strong>Fast Conversion:</strong> Instantly encode/decode large amounts of data</li>
+                <li><strong>No Server Needed:</strong> Everything happens in your browser for privacy and speed</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Features of Base64 Encoder/Decoder</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>⚡ Instant Encoding</h3>
+                    <p>Convert plain text to Base64 instantly with a single click.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔄 Instant Decoding</h3>
+                    <p>Convert Base64 text back to readable format instantly.</p>
+                </div>
+                <div class="feature">
+                    <h3>📋 One-Click Copy</h3>
+                    <p>Copy results to clipboard with a single button for easy sharing.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔐 100% Private</h3>
+                    <p>All encoding/decoding happens in your browser with no server upload.</p>
+                </div>
+                <div class="feature">
+                    <h3>⚙️ UTF-8 Support</h3>
+                    <p>Handles international characters and special symbols perfectly.</p>
+                </div>
+                <div class="feature">
+                    <h3>📊 No Size Limits</h3>
+                    <p>Encode/decode text of any size (limited only by browser memory).</p>
+                </div>
+            </div>
+        </section>
+
         <section>
             <div class="b64-controls">
                 <button class="btn" onclick="encode()">📤 Encode to Base64</button>
@@ -66,6 +166,147 @@
                 <li>API authentication tokens</li>
                 <li>Image embedding in web pages</li>
                 <li>Database binary data storage</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Common Uses & Applications</h2>
+            <ul>
+                <li><strong>Email Attachments:</strong> Email systems encode binary files as Base64 text for transmission</li>
+                <li><strong>Data URLs:</strong> Embed images in HTML/CSS using data:image/png;base64,... format</li>
+                <li><strong>API Authentication:</strong> Encode username:password credentials for HTTP Basic Auth</li>
+                <li><strong>JSON Payloads:</strong> Transmit binary data in text-only JSON APIs</li>
+                <li><strong>Database Storage:</strong> Store binary data in text fields when binary columns aren't available</li>
+                <li><strong>Image Embedding:</strong> Reduce HTTP requests by encoding images as Base64 in HTML</li>
+                <li><strong>Secure Tokens:</strong> Generate and encode authentication and session tokens</li>
+                <li><strong>Data Migration:</strong> Transfer binary data between incompatible systems</li>
+            </ul>
+        </section>
+
+        <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What is Base64?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Base64 is a text encoding standard that converts binary data into an ASCII string using 64 printable characters (A-Z, a-z, 0-9, +, /). It's used universally to transmit binary data over text-only systems.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why is Base64 needed?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Many systems (email, HTTP, JSON) only support text data. Base64 allows binary data to be represented as text so it can be transmitted through these systems without corruption.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is Base64 encryption?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">No, Base64 is encoding, not encryption. It's easily readable by anyone who knows Base64. Use HTTPS/TLS for secure transmission, not Base64 alone.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What does Base64 encoding do?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Encoding converts plain text or binary data into a Base64 string using 64 safe ASCII characters. Decoding reverses the process, converting Base64 back to original text.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I use Base64 in HTML?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Use data URLs to embed images: &lt;img src="data:image/png;base64,iVBORw0KG..."&gt;. This encodes the image directly in HTML, reducing HTTP requests.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use Base64 for passwords?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Base64 is not secure for passwords—it's just encoding, not encryption. For authentication, use HTTP Basic Auth over HTTPS, or better yet, use OAuth tokens or API keys.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's the size difference after encoding?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Base64 encoded data is approximately 33% larger than the original binary data due to the encoding overhead. For example, 100 bytes becomes ~133 bytes after Base64 encoding.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I decode any Base64 string?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes, any valid Base64 string can be decoded. If the decoded result isn't readable text, it might be binary data (like an encoded image) intended for processing by applications.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is this tool secure?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes, 100% secure. All encoding/decoding happens in your browser using JavaScript. No data is sent to servers, and nothing is logged or tracked.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use this offline?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! Once the page loads, you can encode and decode completely offline. All processing happens in your browser with no internet connection needed.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What characters are used in Base64?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Base64 uses 64 characters: A-Z (26), a-z (26), 0-9 (10), plus (+), and slash (/). Padding uses equals signs (=) to make the length a multiple of 4.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I handle very large files?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">This tool handles large text and encoded data up to your browser's memory limit. For very large files, use specialized tools or programming libraries that process data in chunks.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I encode images?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">This tool encodes text to Base64. For images, use image-to-Base64 converters or image encoding tools. However, this tool can decode Base64 image strings back to readable content.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What about special characters and Unicode?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">This tool handles UTF-8 encoding, supporting all Unicode characters including international symbols, emojis, and special characters perfectly.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use Base64 for URLs?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Base64 can encode data for URLs, but URL-safe Base64 uses - and _ instead of + and /. Standard Base64 has characters that need URL encoding (%2B, %2F).</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is Base64 reversible?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes, Base64 encoding is completely reversible. You can encode to Base64 and decode back to the exact original text. No information is lost in the encoding process.</div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>More Information & Tips</h2>
+            <ul>
+                <li><strong>Always Use HTTPS:</strong> If transmitting sensitive Base64 data, always use HTTPS/TLS encryption on top of Base64 encoding.</li>
+                <li><strong>Avoid for Security:</strong> Base64 is encoding, not encryption. Never rely on it alone for protecting sensitive information.</li>
+                <li><strong>Mobile Optimization:</strong> Embedding small images as Base64 can reduce HTTP requests and improve page load on mobile devices.</li>
+                <li><strong>API Authentication:</strong> For HTTP Basic Auth, encode "username:password" as Base64 for the Authorization header.</li>
+                <li><strong>Data URL Performance:</strong> While Base64 data URLs reduce requests, large encoded images can increase HTML size. Test for performance impact.</li>
+                <li><strong>UTF-8 Encoding:</strong> This tool uses UTF-8 encoding, which is standard for modern web applications and handles all Unicode characters.</li>
+                <li><strong>File Size Consideration:</strong> Remember Base64 increases data size by ~33%. Consider the impact on bandwidth and storage.</li>
+                <li><strong>Testing Multiple Decoders:</strong> If decoding doesn't work, verify the Base64 string is valid using multiple tools or online validators.</li>
+                <li><strong>Programming Language Integration:</strong> Most programming languages have built-in Base64 libraries (btoa/atob in JavaScript, base64 module in Python, etc.).</li>
+                <li><strong>Debugging:**Always copy the exact Base64 string (including padding) when debugging encoding/decoding issues in applications.</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Related Tools</h2>
+            <p style="margin-bottom: 1rem;">Explore these other free development and utility tools:</p>
+            <ul>
+                <li><strong><a href="https://tools.youant.me/password-generator/" target="_blank" rel="noopener">Password Generator</a>:</strong> Create strong, secure random passwords instantly</li>
+                <li><strong><a href="https://tools.youant.me/json-formatter/" target="_blank" rel="noopener">JSON Formatter</a>:</strong> Format and validate JSON data for APIs and development</li>
+                <li><strong><a href="https://tools.youant.me/qr-code-generator/" target="_blank" rel="noopener">QR Code Generator</a>:</strong> Generate QR codes from text or URLs</li>
+                <li><strong><a href="https://tools.youant.me/unit-converter/" target="_blank" rel="noopener">Unit Converter</a>:</strong> Convert between different units of measurement</li>
             </ul>
         </section>
     </main>
@@ -101,6 +342,14 @@
         }
         document.getElementById('input').addEventListener('input', () => {
             document.getElementById('output').value = '';
+        });
+
+        // FAQ Accordion Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.closest('.faq-item');
+                item.classList.toggle('active');
+            });
         });
     </script>
 </body>

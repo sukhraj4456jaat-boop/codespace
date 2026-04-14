@@ -95,5 +95,74 @@
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
         <mobile:mobile/>
+    <!-- Blog Articles -->
+    <url>
+        <loc>https://tools.youant.me/blog/01-json-api-formatting.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
     </url>
-</urlset>
+    <url>
+        <loc>https://tools.youant.me/blog/02-markdown-syntax.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
+    </url>
+    <url>
+        <loc>https://tools.youant.me/blog/03-strong-passwords.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
+    </url>
+    <url>
+        <loc>https://tools.youant.me/blog/04-temperature-conversion.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
+    </url>
+    <url>
+        <loc>https://tools.youant.me/blog/05-qr-codes-business.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
+    </url>
+    <url>
+        <loc>https://tools.youant.me/blog/06-web-development-beginners.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
+    </url>
+    <url>
+        <loc>https://tools.youant.me/blog/07-base64-encoding.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
+    </url>
+    <url>
+        <loc>https://tools.youant.me/blog/08-blogging-seo.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
+    </url>
+    <url>
+        <loc>https://tools.youant.me/blog/09-unit-conversions-science.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
+    </url>
+    <url>
+        <loc>https://tools.youant.me/blog/10-api-rest-basics.html</loc>
+        <lastmod>2026-04-14T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+        <mobile:mobile/>
+    </url>

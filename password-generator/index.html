@@ -8,13 +8,13 @@
     <meta name="theme-color" content="#1a1a1a">
 
     <title>Password Generator - Free Strong Secure Password Tool</title>
-    <link rel="canonical" href="https://youant.me/password-generator/">
+    <link rel="canonical" href="https://tools.youant.me/password-generator/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%231a1a1a'>🔐</text></svg>">
     <link rel="stylesheet" href="/style.css">
 
     <meta property="og:title" content="Password Generator - Free Tool">
     <meta property="og:description" content="Create strong, secure passwords instantly with customizable options.">
-    <meta property="og:url" content="https://youant.me/password-generator/">
+    <meta property="og:url" content="https://tools.youant.me/password-generator/">
     <meta property="og:type" content="website">
 
     <script type="application/ld+json">
@@ -23,7 +23,7 @@
       "@type": "WebApplication",
       "name": "Password Generator",
       "description": "Free password generator tool for creating strong, secure random passwords",
-      "url": "https://youant.me/password-generator/",
+      "url": "https://tools.youant.me/password-generator/",
       "applicationCategory": "UtilityApplication",
       "offers": {
         "@type": "Offer",
@@ -170,6 +170,75 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .faq-section {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .faq-item {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active {
+            border-color: #16a34a;
+            box-shadow: 0 2px 8px rgba(22, 163, 74, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.25rem;
+            background: #f5f5f5;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1a1a1a;
+            user-select: none;
+            transition: all 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: #efefef;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #16a34a;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 1.25rem;
+            background: white;
+            color: #555;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1.25rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -187,6 +256,61 @@
     </div>
 
     <main class="container">
+        <div class="breadcrumb">
+            <span><a href="/">Home</a></span>
+            <span> → </span>
+            <span>Password Generator</span>
+        </div>
+
+        <section>
+            <h2>What is the Password Generator?</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin: 1rem 0; color: #555;">The Password Generator is a free online tool that creates strong, secure, random passwords instantly. Whether you need a password for a new account, a security reset, or a development environment, this tool generates cryptographically secure passwords with customizable length and character types. All processing happens in your browser—your data is never sent to any server.</p>
+        </section>
+
+        <section>
+            <h2>Who Should Use It?</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>🔐 Individual Users</h3>
+                    <p>Anyone creating new online accounts or resetting existing passwords. Generate unique, strong passwords for email, social media, banking, and subscription services.</p>
+                </div>
+                <div class="feature">
+                    <h3>👨‍💼 Business Administrators</h3>
+                    <p>IT professionals setting up new user accounts. Quickly generate default passwords that meet organizational security standards and complexity requirements.</p>
+                </div>
+                <div class="feature">
+                    <h3>👨‍💻 Software Developers</h3>
+                    <p>Development and testing teams who need test credentials, API keys, and secure tokens for development environments and sandboxes.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔒 Security Teams</h3>
+                    <p>Information security professionals conducting audits, implementing security policies, or training employees on password best practices.</p>
+                </div>
+                <div class="feature">
+                    <h3>📱 Support Staff</h3>
+                    <p>Customer support teams helping users with account recovery or password resets. Generate temporary secure passwords quickly and professionally.</p>
+                </div>
+                <div class="feature">
+                    <h3>🛡️ Privacy-Conscious Users</h3>
+                    <p>Anyone who wants complete control over password generation and prefers client-side processing with zero server communication.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Who It Helps & Key Benefits</h2>
+            <ul>
+                <li><strong>Enhanced Security:</strong> Creates genuinely random passwords that don't follow predictable patterns attackers can exploit</li>
+                <li><strong>Time Savings:</strong> Generate secure passwords in seconds instead of spending time thinking of complex combinations</li>
+                <li><strong>Customization:</strong> Control password length (8-64 characters) and character types to meet specific requirements</li>
+                <li><strong>Compliance:</strong> Meet organizational password complexity requirements for corporate environments</li>
+                <li><strong>Peace of Mind:</strong> Passwords are generated locally with no external transmission or storage</li>
+                <li><strong>Unlimited Generation:</strong> Create as many passwords as needed with no limits, registration, or tracking</li>
+                <li><strong>Strength Visualization:</strong> See real-time strength assessment to understand password robustness</li>
+                <li><strong>100% Free:</strong> No subscriptions, no ads, no hidden fees—completely free to use</li>
+            </ul>
+        </section>
+
         <section>
             <div class="card">
                 <div class="password-box" id="passwordDisplay">Generate password...</div>
@@ -301,6 +425,133 @@
                 <li><strong>Personal Security:</strong> Enhance your online security with truly random passwords</li>
             </ul>
         </section>
+
+        <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Why do I need a strong password?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Strong passwords protect your accounts from hackers. Weak or reused passwords make you vulnerable to credential stuffing attacks, where attackers use compromised passwords from one site to access your other accounts.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What makes a password strong?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">A strong password has: sufficient length (at least 12-16 characters), a mix of uppercase and lowercase letters, numbers, and special symbols. Random generation ensures no predictable patterns.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How long should my password be?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Minimum 12 characters is recommended for regular accounts. For sensitive accounts (email, banking), 16+ characters is ideal. This tool generates 8-64 character passwords to meet any requirement.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What does password strength mean?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Password strength indicates how resistant a password is to brute-force attacks. Longer passwords with varied character types are stronger. The strength meter shows: Weak (easily cracked), Medium (moderate protection), Strong (excellent protection).</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Should I use symbols in passwords?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes, including symbols significantly increases password strength. Symbols add complexity that makes brute-force attacks much harder. However, ensure the service accepts the symbols you choose.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is this tool secure?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes, 100% secure. All password generation happens in your browser using JavaScript's cryptographic functions. No data is sent to servers. Your generated passwords are never stored or logged.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use this offline?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! Once the page loads, you can use the password generator completely offline. Since all processing happens in your browser, no internet connection is needed after the page loads.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I copy a generated password?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Click the "Copy Password" button. The password is copied to your clipboard and you can paste it anywhere. The button shows confirmation when copied successfully.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I regenerate if I don't like a password?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes, click the "Generate Password" button as many times as needed to create different passwords. There's no limit to how many you can generate.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Should I adjust the password length?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Use the length slider to match your needs. Default 16 characters is excellent for most uses. Increase it for critical accounts (email, banking), decrease only if a service has specific limits.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if a service doesn't allow symbols?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Uncheck the "Symbols" option and regenerate. Your password will use only uppercase, lowercase, and numbers, which works with any service.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How often should I change passwords?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Change passwords for sensitive accounts (email, banking) every 90 days minimum. Change immediately if you suspect compromise. Regular accounts can be changed annually.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Should I reuse passwords?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Never reuse passwords across different services. If one service is breached, attackers can use that password on other sites. Generate unique passwords for each account using this tool.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's a password manager?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">A password manager securely stores all your passwords encrypted. Use this generator to create strong passwords, then store them in a password manager like Bitwarden, 1Password, or KeePass.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I customize character sets?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes, use the checkboxes to enable/disable: Uppercase (A-Z), Lowercase (a-z), Numbers (0-9), and Symbols (!@#$%). Combine any selection to meet specific requirements.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What makes Math.random() not cryptographically secure?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">This tool uses crypto.getRandomValues() which provides true randomness from your operating system, unlike Math.random(). This makes passwords truly unpredictable and secure.</div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>More Information & Tips</h2>
+            <ul>
+                <li><strong>Use Different Passwords:</strong> Each account deserves its own unique password. Never use the same password across multiple services.</li>
+                <li><strong>Use a Password Manager:</strong> After generating passwords, store them securely in a password manager to avoid reusing or forgetting them.</li>
+                <li><strong>Enable Two-Factor Authentication:</strong> Add an extra security layer beyond passwords by enabling 2FA whenever available.</li>
+                <li><strong>Don't Share Passwords:</strong> Never share passwords via email, text, or chat. Only legitimate service representatives should ever ask for passwords (and real ones never do).</li>
+                <li><strong>Be Careful of Phishing:</strong> Passwords are useless if you enter them on a fake website. Always verify URLs before logging in.</li>
+                <li><strong>Avoid Predictable Patterns:</strong> Don't modify generated passwords by adding predictable sequences like "123" or "abc" at the end.</li>
+                <li><strong>Test Complexity Requirements:</strong> Before generating, check if your target service has specific password requirements (minimum length, required characters, etc.).</li>
+                <li><strong>Consider Security Questions:</strong> Some accounts use security questions in addition to passwords. Use unique, non-obvious answers you can remember.</li>
+                <li><strong>Check Password Requirements:</strong> Different services have different rules. Some don't allow special characters, some require minimum lengths. Adjust the generator accordingly.</li>
+                <li><strong>Update Compromised Accounts:</strong> If you hear about a service breach, immediately change the password for that account across all services using this generator.</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Related Tools</h2>
+            <p style="margin-bottom: 1rem;">Explore these other free security and utility tools:</p>
+            <ul>
+                <li><strong><a href="https://tools.youant.me/json-formatter/" target="_blank" rel="noopener">JSON Formatter</a>:</strong> Format and validate JSON data for APIs and web development</li>
+                <li><strong><a href="https://tools.youant.me/qr-code-generator/" target="_blank" rel="noopener">QR Code Generator</a>:</strong> Create QR codes from text or URLs instantly</li>
+                <li><strong><a href="https://tools.youant.me/base64-encoder/" target="_blank" rel="noopener">Base64 Encoder/Decoder</a>:</strong> Encode and decode Base64 data</li>
+                <li><strong><a href="https://tools.youant.me/unit-converter/" target="_blank" rel="noopener">Unit Converter</a>:</strong> Convert between different units of measurement</li>
+            </ul>
+        </section>
     </main>
 
     <footer>
@@ -405,6 +656,14 @@
         });
 
         generatePassword();
+
+        // FAQ Accordion Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.closest('.faq-item');
+                item.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>

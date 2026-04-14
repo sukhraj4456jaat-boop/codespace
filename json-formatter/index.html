@@ -175,6 +175,53 @@
         </div>
 
         <section>
+            <h2>What is the JSON Formatter?</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin: 1rem 0; color: #555;">The JSON Formatter is a powerful online tool for formatting, validating, and beautifying JSON data. Whether you're working with APIs, configuring applications, or handling data exports, this tool instantly transforms messy JSON into readable, properly-indented format. It also minifies JSON to reduce file sizes and validates syntax to catch errors. All processing happens in your browser for complete privacy and security.</p>
+        </section>
+
+        <section>
+            <h2>Who Should Use It?</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>👨‍💻 Web Developers</h3>
+                    <p>Format API responses and configuration files for easier debugging. Validate JSON returned from web services to ensure data integrity.</p>
+                </div>
+                <div class="feature">
+                    <h3>📊 Data Scientists</h3>
+                    <p>Process JSON data exports from databases and APIs. Beautify large datasets for analysis and manipulation.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔧 DevOps Engineers</h3>
+                    <p>Format configuration files (Docker, Kubernetes, Terraform). Validate JSON before deployment to catch syntax errors early.</p>
+                </div>
+                <div class="feature">
+                    <h3>📱 Backend Developers</h3>
+                    <p>Debug API responses from servers. Minify JSON for production to reduce bandwidth and improve performance.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔍 QA/Testers</h3>
+                    <p>Validate API responses during testing. Verify JSON structure matches specifications before submission.</p>
+                </div>
+                <div class="feature">
+                    <h3>📚 Content Managers</h3>
+                    <p>Format JSON data feeds for CMS integration. Validate structured data before publishing.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Who It Helps & Key Benefits</h2>
+            <ul>
+                <li><strong>Instant Readability:</strong> Transform compressed JSON into beautifully indented, readable format</li>
+                <li><strong>Error Detection:</strong> Immediately identify syntax errors like missing commas, unmatched braces, or invalid formatting</li>
+                <li><strong>File Size Reduction:</strong> Minify JSON to reduce data transmission size for faster API calls and web requests</li>
+                <li><strong>Debugging Speed:</strong> Quickly identify problematic data structures by seeing the hierarchy clearly</li>
+                <li><strong>Data Validation:</strong> Ensure JSON compliance before sending to servers or databases</li>
+                <li><strong>Statistics Insights:</strong> View key count, file sizes, and compression ratios to understand your data</li>
+                <li><strong>No Server Upload:</strong> All processing happens locally in your browser—your data never leaves your device</li>
+                <li><strong>Large File Support:</strong> Handle massive JSON files that would timeout with online services</li>
+            </ul>
+        </section>
             <div class="controls">
                 <button class="btn" id="formatBtn">✨ Format & Beautify</button>
                 <button class="btn" id="minifyBtn">📦 Minify</button>
@@ -240,49 +287,97 @@
             <div class="faq-item">
                 <div class="faq-question">What is JSON?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">JSON (JavaScript Object Notation) is a lightweight data format widely used in web APIs and data storage. It's human-readable and language-independent.</div>
+                <div class="faq-answer">JSON (JavaScript Object Notation) is a lightweight data format widely used in web APIs and data storage. It's human-readable and language-independent, making it the standard for data exchange between servers and applications.</div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">Why format JSON?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">Formatting adds indentation and line breaks, making JSON easier to read and debug. Minifying removes whitespace, reducing file size for faster transmission.</div>
+                <div class="faq-answer">Formatting adds indentation and line breaks, making JSON easier to read and debug. Properly formatted JSON reveals data structure hierarchy, making it simple to spot errors and understand complex objects.</div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">What does validate do?</div>
+                <div class="faq-question">What does the validate function do?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">Validation checks if your JSON syntax is correct. It will highlight errors like missing commas, unmatched braces, or invalid data types.</div>
+                <div class="faq-answer">Validation checks if your JSON syntax is correct according to the JSON specification. It will highlight errors like missing commas, unmatched braces, invalid data types, trailing commas, or unquoted keys.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's the difference between format and minify?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Format beautifies JSON with proper indentation for readability. Minify removes all unnecessary whitespace and newlines to reduce file size, ideal for production and data transmission.</div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">Is my data secure?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">100% secure. All processing happens in your browser. Your JSON never leaves your device, and we don't store or transmit any data.</div>
+                <div class="faq-answer">100% secure. All processing happens in your browser using JavaScript. Your JSON never leaves your device, and we don't store or transmit any data to servers. This tool works completely offline after loading.</div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">Can I use this offline?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">Yes! Once the page loads, you can use all features offline since everything runs in your browser.</div>
+                <div class="faq-answer">Yes! Once the page loads, you can use all features completely offline. Since all formatting and validation happens in your browser, no internet connection is needed after the page loads.</div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">What's the file size limit?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">No strict limit, but browser memory determines the practical limit. Most devices handle 10MB+ files easily.</div>
+                <div class="faq-answer">There's no strict limit set by this tool. Your browser's available memory determines the practical limit. Most modern computers handle 10MB+ JSON files easily, far exceeding what online services support.</div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">Can I minify JSON?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">Yes! Click the 'Minify' button to remove all unnecessary whitespace and reduce your JSON file size significantly.</div>
+                <div class="faq-answer">Yes! Click the 'Minify' button to remove all unnecessary whitespace, line breaks, and indentation. This significantly reduces file size for faster API transmission and lower bandwidth usage.</div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">How do I fix invalid JSON?</div>
                 <div class="faq-toggle">+</div>
-                <div class="faq-answer">Use the Format button first to add indentation, making it easier to spot errors. The validator will highlight exactly where the error is.</div>
+                <div class="faq-answer">Use the Format button first to add indentation, making it easier to spot errors. The validator will highlight exactly where the error is. Common fixes: add missing commas, remove trailing commas, use double quotes instead of single quotes, ensure all braces match.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What are common JSON errors?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Missing commas between items, trailing commas after the last item, unquoted keys, single quotes instead of double quotes, unmatched braces or brackets, comments (not allowed in JSON), undefined or NaN values.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I download the formatted JSON?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! Click the 'Download' button to save the formatted output directly to your computer as a .json file. This is useful for APIs, config files, and data exports.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's the compression ratio showing?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">The compression percentage shows size reduction when minifying. For example, 45% means the minified version is 45% smaller than the formatted version, resulting in faster transmission.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why would I want to minify JSON?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Minifying reduces file size for: API responses (faster transmission), production environments (lower bandwidth), data storage (saves disk space), mobile optimization (quicker downloads), and web performance (better load times).</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I format JSON from an API?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! If an API returns JSON, copy the response and paste it into this tool. If the API uses CORS, you can fetch JSON in your browser and paste it. Otherwise, use tools like curl or Postman to get the JSON first.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's a key count in the statistics?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Key count shows the total number of object keys in your JSON. This includes nested keys, giving you insight into your data structure complexity and how many properties your JSON contains.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use this for API testing?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! Validate JSON responses from your APIs, format them for readability, and catch syntax errors that would break your application. This speeds up API development and debugging significantly.</div>
             </div>
         </section>
 
@@ -294,6 +389,33 @@
                 <li><strong>Unquoted keys:</strong> Object keys must be wrapped in double quotes</li>
                 <li><strong>Single quotes:</strong> JSON only allows double quotes, not single quotes</li>
                 <li><strong>Unmatched braces:</strong> Every { or [ must have a matching } or ]</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>More Information & Tips</h2>
+            <ul>
+                <li><strong>Always Validate First:</strong> Validate JSON before using it in your application to catch errors early and prevent runtime failures.</li>
+                <li><strong>Use in Development:</strong> Use formatted JSON during development for clarity, then minify for production to improve performance.</li>
+                <li><strong>Minify for APIs:</strong> Always minify JSON responses in production APIs to reduce bandwidth usage and improve client-side performance.</li>
+                <li><strong>Handle Large Files:</strong> This tool handles large JSON files that would timeout with many online services. Use it for production data processing.</li>
+                <li><strong>Test Your APIs:</strong> Validate API responses during testing to ensure data structure consistency across versions.</li>
+                <li><strong>Check Encoding:</strong> Ensure JSON files are UTF-8 encoded for proper character handling, especially with international text.</li>
+                <li><strong>Avoid Comments:</strong> Remember that JSON doesn't support comments. If you need to document JSON structure, create separate documentation.</li>
+                <li><strong>Version Control:</strong> Store formatted JSON in version control for easier diffs and collaboration with teammates.</li>
+                <li><strong>Learn JSON Structure:</strong> Use the formatter to understand complex nested JSON structures by seeing them properly indented.</li>
+                <li><strong>Monitor Compression:</strong> Track compression ratios to understand data efficiency and identify opportunities for optimization.</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Related Tools</h2>
+            <p style="margin-bottom: 1rem;">Explore these other free development and utility tools:</p>
+            <ul>
+                <li><strong><a href="https://tools.youant.me/password-generator/" target="_blank" rel="noopener">Password Generator</a>:</strong> Create strong, secure random passwords for any purpose</li>
+                <li><strong><a href="https://tools.youant.me/qr-code-generator/" target="_blank" rel="noopener">QR Code Generator</a>:</strong> Generate QR codes from text or URLs instantly</li>
+                <li><strong><a href="https://tools.youant.me/base64-encoder/" target="_blank" rel="noopener">Base64 Encoder/Decoder</a>:</strong> Encode and decode Base64 data for web development</li>
+                <li><strong><a href="https://tools.youant.me/unit-converter/" target="_blank" rel="noopener">Unit Converter</a>:</strong> Convert between different units of measurement</li>
             </ul>
         </section>
     </main>
