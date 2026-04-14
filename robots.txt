@@ -1,50 +1,17 @@
-# Word Counter Tool - robots.txt
-# Allow all search engines to crawl and index
-
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /resources/
+Allow: /word-counter/
+Allow: /code-runner/
+Allow: /password-generator/
+Allow: /json-formatter/
+Allow: /qr-code-generator/
+Allow: /unit-converter/
+Allow: /base64-encoder/
+Allow: /markdown-to-html/
+
+Disallow: /admin/
 Disallow: /private/
-Disallow: /.env
-Disallow: /config/
-Disallow: /.git/
 
-# Specific crawlers with optimized settings
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-Request-rate: 100/1s
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-Request-rate: 50/1s
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 1
-
-# Sitemap location - helps search engines find all content
-Sitemap: https://youant.me/sitemap.xml
-
-# Additional sitemaps if needed
-# Sitemap: https://youant.me/sitemap-blog.xml
-# Sitemap: https://youant.me/sitemap-products.xml
-
-# Block bad bots
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
+Sitemap: https://tools.youant.me/sitemap.xml

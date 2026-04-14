@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Free online word counter tool. Instantly count words, characters, paragraphs, sentences, and calculate reading time. Perfect for writers, students, and content creators.">
+    <meta name="google-site-verification" content="youant_verification_code_here">
     <meta name="keywords" content="word counter, character counter, text analyzer, word count tool, free word counter online, sentence counter">
     <meta name="theme-color" content="#1a1a1a">
 
@@ -65,7 +66,7 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+            <div class="logo"><a href="/">youant tools</a></div>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -102,6 +103,50 @@
             <span> → </span>
             <span>Word Counter</span>
         </div>
+
+        <section>
+            <div class="card">
+                <label for="textInput" style="display: block; font-weight: 600; margin-bottom: 0.75rem; color: #1a1a1a;">Paste or Type Your Text</label>
+                <textarea
+                    id="textInput"
+                    placeholder="Enter your text, essay, article, or code here..."
+                    aria-label="Text input for word counter"
+                ></textarea>
+
+                <div class="control-group">
+                    <button class="btn" id="generateBtn">Analyze Text</button>
+                    <button class="btn" id="clearBtn">Clear All</button>
+                    <button class="btn" id="copyBtn">Copy Results</button>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">Words</div>
+                        <div class="stat-value" id="wordCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Characters</div>
+                        <div class="stat-value" id="charCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Paragraphs</div>
+                        <div class="stat-value" id="paragraphCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Sentences</div>
+                        <div class="stat-value" id="sentenceCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Reading Time</div>
+                        <div class="stat-value" id="readingTime">0m</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Avg Word Len</div>
+                        <div class="stat-value" id="avgWordLength">0</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section style="text-align: center; margin: 2rem 0;">
             <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
@@ -181,50 +226,6 @@
 
                 <h3>Multi-Purpose Analysis</h3>
                 <p>Get more than just word count. Analyze paragraph structure, sentence distribution, and character count for comprehensive text insight.</p>
-            </div>
-        </section>
-
-        <section>
-            <div class="card">
-                <label for="textInput" style="display: block; font-weight: 600; margin-bottom: 0.75rem; color: #1a1a1a;">Paste or Type Your Text</label>
-                <textarea
-                    id="textInput"
-                    placeholder="Enter your text, essay, article, or code here..."
-                    aria-label="Text input for word counter"
-                ></textarea>
-
-                <div class="control-group">
-                    <button class="btn" id="generateBtn">Analyze Text</button>
-                    <button class="btn" id="clearBtn">Clear All</button>
-                    <button class="btn" id="copyBtn">Copy Results</button>
-                </div>
-
-                <div class="stat-grid">
-                    <div class="stat-box">
-                        <div class="stat-label">Words</div>
-                        <div class="stat-value" id="wordCount">0</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Characters</div>
-                        <div class="stat-value" id="charCount">0</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Paragraphs</div>
-                        <div class="stat-value" id="paragraphCount">0</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Sentences</div>
-                        <div class="stat-value" id="sentenceCount">0</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Reading Time</div>
-                        <div class="stat-value" id="readingTime">0m</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Avg Word Len</div>
-                        <div class="stat-value" id="avgWordLength">0</div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -381,7 +382,7 @@
 
     <footer>
         <div class="container text-center">
-            <p>&copy; 2026 Free Tools. All rights reserved.</p>
+            <p>&copy; 2026 youant tools. All rights reserved.</p>
         </div>
     </footer>
 
