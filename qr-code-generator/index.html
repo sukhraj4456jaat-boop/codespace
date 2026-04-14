@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Free QR code generator. Create QR codes from text or URLs instantly. Customize size and color. Download as PNG or SVG.">
-    <meta name="google-site-verification" content="youant_verification_code_here">
+    <meta name="google-site-verification" content="yooant_verification_code_here">
     <meta name="keywords" content="QR code generator, free QR code, QR maker, generate QR code online, QR code creator">
     <meta name="theme-color" content="#0f1419">
 
@@ -112,7 +112,7 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <div class="logo"><a href="/">youant tools</a></div>
+            <div class="logo"><a href="/">yooant tools</a></div>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -146,61 +146,62 @@
             <span><a href="/">Home</a></span>
             <span> → </span>
             <span>QR Code Generator</span>
-        </div><section>
+        </div>
+
+        <section>
             <div class="card">
-<div class="qr-container">
-                <div class="qr-input-panel">
-                    <div class="form-group">
-                        <label for="qrText">Enter Text or URL</label>
-                        <textarea id="qrText" placeholder="Enter the text or URL for QR code..." style="min-height: 120px;"></textarea>
+                <div class="qr-container">
+                    <div class="qr-input-panel">
+                        <div class="form-group">
+                            <label for="qrText">Enter Text or URL</label>
+                            <textarea id="qrText" placeholder="Enter the text or URL for QR code..." style="min-height: 120px;"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="qrSize">Size (pixels)</label>
+                            <input type="number" id="qrSize" value="250" min="100" max="500" step="50">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Dark Color</label>
+                            <div class="color-picker-wrapper">
+                                <input type="color" id="darkColor" value="#000000">
+                                <span id="darkColorValue">#000000</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Light Color</label>
+                            <div class="color-picker-wrapper">
+                                <input type="color" id="lightColor" value="#ffffff">
+                                <span id="lightColorValue">#ffffff</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="errorLevel">Error Correction</label>
+                            <select id="errorLevel">
+                                <option value="L">Low (7% recovery)</option>
+                                <option value="M" selected>Medium (15% recovery)</option>
+                                <option value="Q">Quartile (25% recovery)</option>
+                                <option value="H">High (30% recovery)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn" onclick="generateQR()" style="width: 100%; margin-top: var(--spacing-lg);">✨ Generate QR Code</button>
                     </div>
 
-                    <div class="form-group">
-                        <label for="qrSize">Size (pixels)</label>
-                        <input type="number" id="qrSize" value="250" min="100" max="500" step="50">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Dark Color</label>
-                        <div class="color-picker-wrapper">
-                            <input type="color" id="darkColor" value="#000000">
-                            <span id="darkColorValue">#000000</span>
+                    <div class="qr-preview-panel">
+                        <h3>Preview</h3>
+                        <div id="qrcode"></div>
+                        <div class="preview-actions">
+                            <button class="btn" onclick="downloadQR('png')">📥 Download PNG</button>
+                            <button class="btn btn-secondary" onclick="downloadQR('svg')">📥 Download SVG</button>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Light Color</label>
-                        <div class="color-picker-wrapper">
-                            <input type="color" id="lightColor" value="#ffffff">
-                            <span id="lightColorValue">#ffffff</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="errorLevel">Error Correction</label>
-                        <select id="errorLevel">
-                            <option value="L">Low (7% recovery)</option>
-                            <option value="M" selected>Medium (15% recovery)</option>
-                            <option value="Q">Quartile (25% recovery)</option>
-                            <option value="H">High (30% recovery)</option>
-                        </select>
-                    </div>
-
-                    <button class="btn" onclick="generateQR()" style="width: 100%; margin-top: var(--spacing-lg);">✨ Generate QR Code</button>
                 </div>
-
-                <div class="qr-preview-panel">
-                    <h3>Preview</h3>
-                    <div id="qrcode"></div>
-                    <div class="preview-actions">
-                        <button class="btn" onclick="downloadQR('png')">📥 Download PNG</button>
-                        <button class="btn btn-secondary" onclick="downloadQR('svg')">📥 Download SVG</button>
-                    </div>
-                </div>
-            </div>
             </div>
         </section>
-
 
         <section>
             <h2>What is the QR Code Generator?</h2>
@@ -235,7 +236,9 @@
                     <p>Generate QR codes for tickets and check-ins. Streamline registration and entrance verification at events.</p>
                 </div>
             </div>
-        </section><section style="text-align: center; margin: 2rem 0;">
+        </section>
+
+        <section style="text-align: center; margin: 2rem 0;">
             <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
                 <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width: 300px; height: 200px;">
                     <rect x="60" y="40" width="120" height="120" fill="#f0f9ff" stroke="#10b981" stroke-width="2"/>
@@ -250,7 +253,6 @@
                 </svg>
             </div>
         </section>
-        
 
         <section class="info-section">
             <h2>Who It Helps & Key Benefits</h2>
@@ -265,8 +267,6 @@
                 <li><strong>Professional Quality:</strong> Generate print-ready QR codes suitable for commercial use</li>
             </ul>
         </section>
-        </section>
-
 
         <section class="info-section">
             <h2>Features</h2>
@@ -410,7 +410,7 @@
 
     <footer>
         <div class="container text-center">
-            <p>&copy; 2026 youant tools. Generate QR codes for any purpose.</p>
+            <p>&copy; 2026 yooant tools. Generate QR codes for any purpose.</p>
         </div>
     </footer>
 
