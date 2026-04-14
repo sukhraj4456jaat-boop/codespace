@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free QR code generator. Create QR codes from text or URLs instantly. Customize size and color. Download as PNG or SVG.">
+    <meta name="keywords" content="QR code generator, free QR code, QR maker, generate QR code online, QR code creator">
+    <meta name="theme-color" content="#0f1419">
+
+    <title>QR Code Generator - Free Online QR Creator</title>
+    <link rel="canonical" href="https://tools.youant.me/qr-code-generator/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%2310b981'>📲</text></svg>">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <meta property="og:title" content="QR Code Generator">
+    <meta property="og:description" content="Generate QR codes instantly. Customize size, color, and download.">
+    <meta property="og:url" content="https://tools.youant.me/qr-code-generator/">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QR Code Generator",
+      "description": "Free online QR code generator and creator",
+      "url": "https://tools.youant.me/qr-code-generator/",
+      "applicationCategory": "UtilityApplication",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+
+    <style>
+        .qr-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .qr-input-panel {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--border-color);
+        }
+
+        .qr-preview-panel {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        #qrcode {
+            margin: var(--spacing-lg) 0;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-dark);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+        }
+
+        .color-picker-wrapper {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .color-picker-wrapper input[type="color"] {
+            width: 60px;
+            height: 45px;
+            border: none;
+            cursor: pointer;
+            border-radius: var(--radius-md);
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .preview-actions .btn {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        @media (max-width: 1024px) {
+            .qr-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="container">
+            <h1>QR Code Generator</h1>
+            <p>Generate professional QR codes from text or URLs instantly with customizable colors and sizes</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <span><a href="/">Home</a></span>
+            <span> → </span>
+            <span>QR Code Generator</span>
+        </div>
+
+        <section>
+            <div class="qr-container">
+                <div class="qr-input-panel">
+                    <div class="form-group">
+                        <label for="qrText">Enter Text or URL</label>
+                        <textarea id="qrText" placeholder="Enter the text or URL for QR code..." style="min-height: 120px;"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qrSize">Size (pixels)</label>
+                        <input type="number" id="qrSize" value="250" min="100" max="500" step="50">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dark Color</label>
+                        <div class="color-picker-wrapper">
+                            <input type="color" id="darkColor" value="#000000">
+                            <span id="darkColorValue">#000000</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Light Color</label>
+                        <div class="color-picker-wrapper">
+                            <input type="color" id="lightColor" value="#ffffff">
+                            <span id="lightColorValue">#ffffff</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="errorLevel">Error Correction</label>
+                        <select id="errorLevel">
+                            <option value="L">Low (7% recovery)</option>
+                            <option value="M" selected>Medium (15% recovery)</option>
+                            <option value="Q">Quartile (25% recovery)</option>
+                            <option value="H">High (30% recovery)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn" onclick="generateQR()" style="width: 100%; margin-top: var(--spacing-lg);">✨ Generate QR Code</button>
+                </div>
+
+                <div class="qr-preview-panel">
+                    <h3>Preview</h3>
+                    <div id="qrcode"></div>
+                    <div class="preview-actions">
+                        <button class="btn" onclick="downloadQR('png')">📥 Download PNG</button>
+                        <button class="btn btn-secondary" onclick="downloadQR('svg')">📥 Download SVG</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Instant Generation:</strong> Create QR codes in milliseconds</li>
+                <li><strong>Customize Size:</strong> Choose from 100 to 500 pixels</li>
+                <li><strong>Color Customization:</strong> Pick any dark and light colors</li>
+                <li><strong>Error Correction:</strong> 4 levels of error recovery (7% to 30%)</li>
+                <li><strong>Download Formats:</strong> Save as PNG or SVG</li>
+                <li><strong>URL Support:</strong> Works with URLs, text, emails, and phone numbers</li>
+            </ul>
+        </section>
+
+        <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What is a QR code?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">QR (Quick Response) code is a 2D barcode that stores information readable by smartphones and QR scanners.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What can I encode?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">URLs, text, emails, phone numbers, vCards, WiFi credentials, and more. Any text up to 4,296 characters.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's error correction?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">If the QR code is partially damaged or obscured, error correction lets phones still scan it. Higher levels provide more protection.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Should I use PNG or SVG?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Use PNG for web images. Use SVG for printing to maintain quality at any size.</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Free Tools. Generate QR codes for any purpose.</p>
+        </div>
+    </footer>
+
+    <script>
+        let qrInstance = null;
+
+        document.getElementById('darkColor').addEventListener('input', (e) => {
+            document.getElementById('darkColorValue').textContent = e.target.value;
+        });
+
+        document.getElementById('lightColor').addEventListener('input', (e) => {
+            document.getElementById('lightColorValue').textContent = e.target.value;
+        });
+
+        function generateQR() {
+            const text = document.getElementById('qrText').value.trim();
+            if (!text) {
+                alert('Please enter text or URL');
+                return;
+            }
+
+            const size = parseInt(document.getElementById('qrSize').value);
+            const darkColor = document.getElementById('darkColor').value.replace('#', '');
+            const lightColor = document.getElementById('lightColor').value.replace('#', '');
+
+            document.getElementById('qrcode').innerHTML = '';
+            qrInstance = new QRCode(document.getElementById('qrcode'), {
+                text: text,
+                width: size,
+                height: size,
+                colorDark: '#' + darkColor,
+                colorLight: '#' + lightColor,
+                correctLevel: QRCode.CorrectLevel[document.getElementById('errorLevel').value]
+            });
+        }
+
+        function downloadQR(format) {
+            if (!qrInstance) {
+                alert('Generate QR code first');
+                return;
+            }
+
+            const canvas = document.querySelector('#qrcode canvas');
+            if (format === 'png') {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'qrcode.png';
+                link.click();
+            }
+        }
+
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', function() {
+                this.closest('.faq-item').classList.toggle('active');
+            });
+        });
+
+        // Generate initial QR code
+        setTimeout(() => {
+            document.getElementById('qrText').value = 'https://tools.youant.me';
+            generateQR();
+        }, 500);
+    </script>
+</body>
+</html>

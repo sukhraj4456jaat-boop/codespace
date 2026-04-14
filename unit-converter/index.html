@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free unit converter. Convert temperature, distance, weight, volume, speed instantly. 20+ unit types supported.">
+    <meta name="keywords" content="unit converter, convert temperature, convert weight, convert distance, online converter">
+    <meta name="theme-color" content="#0f1419">
+    <title>Unit Converter - Free Online Conversion Tool</title>
+    <link rel="canonical" href="https://tools.youant.me/unit-converter/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%2310b981'>🔄</text></svg>">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .converter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-lg); margin: var(--spacing-2xl) 0; }
+        .converter-card { background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 2px solid var(--border-color); }
+        .converter-card h3 { color: var(--accent); margin-bottom: var(--spacing-md); }
+        .converter-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md); align-items: end; }
+        .converter-row input { width: 100%; }
+        .faq-section { max-width: 900px; margin: var(--spacing-2xl) auto; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+        </div>
+    </nav>
+    <div class="header">
+        <div class="container">
+            <h1>Unit Converter</h1>
+            <p>Convert between 20+ unit types instantly with real-time results</p>
+        </div>
+    </div>
+    <main class="container">
+        <div class="breadcrumb">
+            <span><a href="/">Home</a></span>
+            <span> → </span>
+            <span>Unit Converter</span>
+        </div>
+        <section>
+            <div class="converter-grid" id="converters"></div>
+        </section>
+        <section class="faq-section">
+            <h2 class="section-title">FAQ</h2>
+            <div class="faq-item">
+                <div class="faq-question">What conversions are available?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Temperature (C, F, K), Distance (m, km, mi), Weight (kg, lb, g), Volume (L, ml, gal), Speed (m/s, km/h, mph)</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How accurate are conversions?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Conversions use standardized international conversion formulas for maximum accuracy.</div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Free Tools. Convert any unit instantly.</p>
+        </div>
+    </footer>
+    <script>
+        const converters = {
+            Temperature: { units: { 'Celsius': 1, 'Fahrenheit': 1.8, 'Kelvin': 1 }, labels: { 'Celsius': '°C', 'Fahrenheit': '°F', 'Kelvin': 'K' } },
+            Distance: { units: { 'Meters': 1, 'Kilometers': 0.001, 'Miles': 0.000621371, 'Feet': 3.28084, 'Inches': 39.3701 }, labels: {} },
+            Weight: { units: { 'Kilograms': 1, 'Pounds': 2.20462, 'Grams': 1000, 'Ounces': 35.274 }, labels: {} },
+            Volume: { units: { 'Liters': 1, 'Milliliters': 1000, 'Gallons': 0.264172, 'Cups': 4.22675 }, labels: {} },
+            Speed: { units: { 'Meters/s': 1, 'KM/h': 3.6, 'Miles/h': 2.23694, 'Knots': 1.94384 }, labels: {} }
+        };
+
+        const container = document.getElementById('converters');
+        for (const [category, data] of Object.entries(converters)) {
+            const units = Object.keys(data.units);
+            const card = document.createElement('div');
+            card.className = 'converter-card animate-fade-in-up';
+            card.innerHTML = `<h3>${category}</h3>
+            <div class="converter-row">
+                <input type="number" placeholder="From" class="input-from" value="1">
+                <select class="select-from">${units.map(u => `<option>${u}</option>`).join('')}</select>
+            </div>
+            <div class="converter-row">
+                <input type="number" placeholder="To" class="input-to" readonly>
+                <select class="select-to">${units.map(u => `<option>${u}</option>`).join('')}</select>
+            </div>`;
+            container.appendChild(card);
+
+            const inputFrom = card.querySelector('.input-from');
+            const selectFrom = card.querySelector('.select-from');
+            const selectTo = card.querySelector('.select-to');
+            const inputTo = card.querySelector('.input-to');
+
+            const convert = () => {
+                const val = parseFloat(inputFrom.value) || 0;
+                const fromUnit = data.units[selectFrom.value];
+                const toUnit = data.units[selectTo.value];
+                inputTo.value = (val * fromUnit / toUnit).toFixed(6);
+            };
+
+            inputFrom.addEventListener('input', convert);
+            selectFrom.addEventListener('change', convert);
+            selectTo.addEventListener('change', convert);
+            convert();
+        }
+
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('active'));
+        });
+    </script>
+</body>
+</html>

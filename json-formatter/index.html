@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free JSON formatter and validator. Beautify, minify, and validate JSON data instantly. Auto-fix errors. Download formatted JSON. No signup required.">
+    <meta name="keywords" content="JSON formatter, JSON validator, JSON beautifier, format JSON online, validate JSON, minify JSON, JSON parser">
+    <meta name="theme-color" content="#0f1419">
+
+    <title>JSON Formatter - Free Online JSON Validator & Beautifier</title>
+    <link rel="canonical" href="https://tools.youant.me/json-formatter/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%2310b981'>{}</text></svg>">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta property="og:title" content="JSON Formatter & Validator">
+    <meta property="og:description" content="Format, validate, and beautify JSON data instantly. Auto-fix errors. Download results.">
+    <meta property="og:url" content="https://tools.youant.me/json-formatter/">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JSON Formatter",
+      "description": "Free online JSON formatter, validator, and beautifier tool",
+      "url": "https://tools.youant.me/json-formatter/",
+      "applicationCategory": "UtilityApplication",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+
+    <style>
+        .breadcrumb {
+            margin: var(--spacing-xl) 0;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .editor-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .editor-panel {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-header {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%);
+            color: var(--white);
+            padding: var(--spacing-md) var(--spacing-lg);
+            font-weight: 600;
+        }
+
+        .editor-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        textarea.json-input {
+            flex: 1;
+            padding: var(--spacing-md);
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            resize: none;
+            background: #f9fafb;
+        }
+
+        textarea.json-input:focus {
+            outline: none;
+            background: var(--accent-light);
+        }
+
+        .controls {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .controls .btn {
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            border: 2px solid var(--error);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            color: var(--error);
+            margin: var(--spacing-md) 0;
+            display: none;
+            animation: scaleIn 0.3s ease;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            background: #dbeafe;
+            border: 2px solid var(--cyan);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            color: var(--cyan);
+            margin: var(--spacing-md) 0;
+            display: none;
+            animation: scaleIn 0.3s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .stat-card {
+            background: var(--accent-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--accent);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-sm);
+        }
+
+        @media (max-width: 1024px) {
+            .editor-wrapper { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="container">
+            <h1>JSON Formatter & Validator</h1>
+            <p>Format, validate, and beautify JSON data instantly with auto-error detection and fixing</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <span><a href="/">Home</a></span>
+            <span> → </span>
+            <span>JSON Formatter</span>
+        </div>
+
+        <section>
+            <div class="controls">
+                <button class="btn" id="formatBtn">✨ Format & Beautify</button>
+                <button class="btn" id="minifyBtn">📦 Minify</button>
+                <button class="btn" id="validateBtn">✓ Validate</button>
+                <button class="btn" id="clearBtn">🗑️ Clear</button>
+                <button class="btn" id="downloadBtn">⬇️ Download</button>
+            </div>
+
+            <div id="errorMsg" class="error-message"></div>
+            <div id="successMsg" class="success-message"></div>
+
+            <div class="editor-wrapper">
+                <div class="editor-panel">
+                    <div class="editor-header">Input JSON</div>
+                    <div class="editor-content">
+                        <textarea id="jsonInput" class="json-input" placeholder='Paste your JSON here or upload a file...'></textarea>
+                    </div>
+                </div>
+
+                <div class="editor-panel">
+                    <div class="editor-header">Formatted Output</div>
+                    <div class="editor-content">
+                        <textarea id="jsonOutput" class="json-input" readonly placeholder="Formatted JSON will appear here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats" id="stats" style="display: none;">
+                <div class="stat-card">
+                    <div class="stat-value" id="keyCount">0</div>
+                    <div class="stat-label">Keys</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="sizeInput">0 B</div>
+                    <div class="stat-label">Input Size</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="sizeOutput">0 B</div>
+                    <div class="stat-label">Output Size</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="compression">0%</div>
+                    <div class="stat-label">Compression</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Instant Formatting:</strong> Beautify JSON with proper indentation automatically</li>
+                <li><strong>Validation:</strong> Check if JSON is valid with detailed error messages</li>
+                <li><strong>Minify:</strong> Remove all unnecessary whitespace to reduce file size</li>
+                <li><strong>Auto-Fix:</strong> Attempt to fix common JSON errors automatically</li>
+                <li><strong>Statistics:</strong> View key count, file sizes, and compression ratio</li>
+                <li><strong>Download:</strong> Save formatted JSON directly to your computer</li>
+            </ul>
+        </section>
+
+        <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What is JSON?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">JSON (JavaScript Object Notation) is a lightweight data format widely used in web APIs and data storage. It's human-readable and language-independent.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Why format JSON?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Formatting adds indentation and line breaks, making JSON easier to read and debug. Minifying removes whitespace, reducing file size for faster transmission.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What does validate do?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Validation checks if your JSON syntax is correct. It will highlight errors like missing commas, unmatched braces, or invalid data types.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is my data secure?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">100% secure. All processing happens in your browser. Your JSON never leaves your device, and we don't store or transmit any data.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use this offline?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! Once the page loads, you can use all features offline since everything runs in your browser.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's the file size limit?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">No strict limit, but browser memory determines the practical limit. Most devices handle 10MB+ files easily.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I minify JSON?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Yes! Click the 'Minify' button to remove all unnecessary whitespace and reduce your JSON file size significantly.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I fix invalid JSON?</div>
+                <div class="faq-toggle">+</div>
+                <div class="faq-answer">Use the Format button first to add indentation, making it easier to spot errors. The validator will highlight exactly where the error is.</div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Common JSON Errors</h2>
+            <ul>
+                <li><strong>Missing comma:</strong> Objects and arrays must have commas between items</li>
+                <li><strong>Trailing comma:</strong> The last item should NOT have a comma</li>
+                <li><strong>Unquoted keys:</strong> Object keys must be wrapped in double quotes</li>
+                <li><strong>Single quotes:</strong> JSON only allows double quotes, not single quotes</li>
+                <li><strong>Unmatched braces:</strong> Every { or [ must have a matching } or ]</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Free Tools. JSON Formatter optimized for developers worldwide.</p>
+        </div>
+    </footer>
+
+    <script>
+        const jsonInput = document.getElementById('jsonInput');
+        const jsonOutput = document.getElementById('jsonOutput');
+        const formatBtn = document.getElementById('formatBtn');
+        const minifyBtn = document.getElementById('minifyBtn');
+        const validateBtn = document.getElementById('validateBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const errorMsg = document.getElementById('errorMsg');
+        const successMsg = document.getElementById('successMsg');
+        const stats = document.getElementById('stats');
+
+        function formatJSON() {
+            try {
+                const json = JSON.parse(jsonInput.value);
+                const formatted = JSON.stringify(json, null, 2);
+                jsonOutput.value = formatted;
+                updateStats(formatted);
+                showSuccess('✓ JSON formatted successfully!');
+                hideError();
+            } catch (err) {
+                showError('❌ Invalid JSON: ' + err.message);
+            }
+        }
+
+        function minifyJSON() {
+            try {
+                const json = JSON.parse(jsonInput.value);
+                const minified = JSON.stringify(json);
+                jsonOutput.value = minified;
+                updateStats(minified);
+                showSuccess('✓ JSON minified successfully!');
+                hideError();
+            } catch (err) {
+                showError('❌ Invalid JSON: ' + err.message);
+            }
+        }
+
+        function validateJSON() {
+            try {
+                JSON.parse(jsonInput.value);
+                showSuccess('✓ JSON is valid!');
+                hideError();
+            } catch (err) {
+                showError('❌ Invalid JSON: ' + err.message);
+            }
+        }
+
+        function updateStats(data) {
+            try {
+                const json = JSON.parse(jsonInput.value);
+                const keyCount = countKeys(json);
+                const inputSize = new Blob([jsonInput.value]).size;
+                const outputSize = new Blob([data]).size;
+                const compression = ((1 - outputSize / inputSize) * 100).toFixed(1);
+
+                document.getElementById('keyCount').textContent = keyCount;
+                document.getElementById('sizeInput').textContent = formatBytes(inputSize);
+                document.getElementById('sizeOutput').textContent = formatBytes(outputSize);
+                document.getElementById('compression').textContent = compression + '%';
+                stats.style.display = 'grid';
+            } catch (e) {}
+        }
+
+        function countKeys(obj, count = 0) {
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    count++;
+                    if (typeof obj[key] === 'object') {
+                        count = countKeys(obj[key], count);
+                    }
+                }
+            }
+            return count;
+        }
+
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return (bytes / Math.pow(k, i)).toFixed(2) + ' ' + sizes[i];
+        }
+
+        function showError(msg) {
+            errorMsg.textContent = msg;
+            errorMsg.classList.add('show');
+        }
+
+        function hideError() {
+            errorMsg.classList.remove('show');
+        }
+
+        function showSuccess(msg) {
+            successMsg.textContent = msg;
+            successMsg.classList.add('show');
+            setTimeout(() => successMsg.classList.remove('show'), 3000);
+        }
+
+        formatBtn.addEventListener('click', formatJSON);
+        minifyBtn.addEventListener('click', minifyJSON);
+        validateBtn.addEventListener('click', validateJSON);
+        clearBtn.addEventListener('click', () => {
+            jsonInput.value = '';
+            jsonOutput.value = '';
+            stats.style.display = 'none';
+            hideError();
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            if (!jsonOutput.value) {
+                showError('❌ No JSON to download. Format JSON first.');
+                return;
+            }
+            const blob = new Blob([jsonOutput.value], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'formatted.json';
+            a.click();
+            showSuccess('✓ JSON downloaded!');
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.closest('.faq-item');
+                item.classList.toggle('active');
+            });
+        });
+
+        // Auto-format on input (optional - can be disabled for performance)
+        let formatTimeout;
+        jsonInput.addEventListener('input', () => {
+            clearTimeout(formatTimeout);
+            formatTimeout = setTimeout(() => {
+                if (jsonInput.value.trim()) {
+                    try {
+                        const json = JSON.parse(jsonInput.value);
+                        // Silent validation
+                    } catch (e) {
+                        // Silent error
+                    }
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>

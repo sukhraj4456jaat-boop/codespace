@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Markdown to HTML converter. Convert Markdown to HTML instantly with live preview. Includes syntax guide.">
+    <meta name="keywords" content="markdown to HTML, markdown converter, markdown editor, convert markdown online">
+    <meta name="theme-color" content="#0f1419">
+    <title>Markdown to HTML Converter - Free Online Tool</title>
+    <link rel="canonical" href="https://tools.youant.me/markdown-to-html/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%2310b981'>📝</text></svg>">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .md-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); margin: var(--spacing-2xl) 0; }
+        .md-panel { background: var(--white); border-radius: var(--radius-lg); border: 2px solid var(--border-color); display: flex; flex-direction: column; }
+        .md-header { background: linear-gradient(135deg, var(--accent), var(--cyan)); color: var(--white); padding: var(--spacing-md) var(--spacing-lg); font-weight: 600; }
+        .md-content { flex: 1; padding: var(--spacing-lg); overflow: auto; }
+        .md-input { width: 100%; min-height: 400px; border: none; font-family: 'Courier New', monospace; font-size: 0.9rem; resize: none; }
+        .md-preview { background: var(--primary-light); }
+        .md-preview h1, .md-preview h2, .md-preview h3 { margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md); }
+        .md-preview code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .md-preview pre { background: #2d2d2d; color: #f8f8f2; padding: var(--spacing-md); border-radius: var(--radius-md); overflow-x: auto; }
+        .controls { display: flex; gap: var(--spacing-md); margin-bottom: var(--spacing-lg); flex-wrap: wrap; }
+        .controls .btn { flex: 1; min-width: 120px; }
+        @media (max-width: 1024px) { .md-grid { grid-template-columns: 1fr; } }
+        .syntax-guide { background: var(--accent-light); padding: var(--spacing-lg); border-radius: var(--radius-lg); margin: var(--spacing-2xl) 0; }
+        .syntax-guide code { background: var(--white); padding: 2px 6px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="/">⚡ Free Tools</a></div>
+        </div>
+    </nav>
+    <div class="header">
+        <div class="container">
+            <h1>Markdown to HTML Converter</h1>
+            <p>Convert Markdown to HTML instantly with live preview and syntax highlighting</p>
+        </div>
+    </div>
+    <main class="container">
+        <div class="breadcrumb">
+            <span><a href="/">Home</a></span>
+            <span> → </span>
+            <span>Markdown to HTML</span>
+        </div>
+        <section>
+            <div class="controls">
+                <button class="btn" onclick="copyHTML()">📋 Copy HTML</button>
+                <button class="btn" onclick="downloadHTML()">⬇️ Download HTML</button>
+                <button class="btn" onclick="clearAll()">🗑️ Clear</button>
+            </div>
+            <div class="md-grid">
+                <div class="md-panel">
+                    <div class="md-header">Markdown Input</div>
+                    <div class="md-content">
+                        <textarea class="md-input" id="mdInput" placeholder="Enter Markdown here...">
+# Welcome to Markdown Converter
+
+This is a **bold** text and *italic* text.
+
+## Features
+- Real-time preview
+- Download as HTML
+- No dependencies needed
+
+### Code Example
+\`\`\`javascript
+console.log('Hello, World!');
+\`\`\`
+
+Visit [Free Tools](https://tools.youant.me) for more.
+                        </textarea>
+                    </div>
+                </div>
+                <div class="md-panel md-preview">
+                    <div class="md-header">HTML Preview</div>
+                    <div class="md-content" id="preview"></div>
+                </div>
+            </div>
+        </section>
+        <section class="syntax-guide">
+            <h2>Markdown Syntax Guide</h2>
+            <ul>
+                <li><code># Heading 1</code> - Create main heading</li>
+                <li><code>## Heading 2</code> - Create subheading</li>
+                <li><code>**bold**</code> - Make text bold</li>
+                <li><code>*italic*</code> - Make text italic</li>
+                <li><code>[Link](url)</code> - Create hyperlink</li>
+                <li><code>- Item</code> - Create bullet list</li>
+                <li><code>\`code\`</code> - Inline code</li>
+                <li><code>\`\`\`language code \`\`\`</code> - Code block</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Free Tools. Convert Markdown to HTML instantly.</p>
+        </div>
+    </footer>
+    <script>
+        const mdInput = document.getElementById('mdInput');
+        const preview = document.getElementById('preview');
+
+        function updatePreview() {
+            const md = mdInput.value;
+            const html = marked.parse(md);
+            preview.innerHTML = html;
+        }
+
+        function copyHTML() {
+            const html = preview.innerHTML;
+            navigator.clipboard.writeText(html).then(() => {
+                alert('HTML copied to clipboard!');
+            });
+        }
+
+        function downloadHTML() {
+            const fullHTML = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { font-family: system-ui; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+        code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+${preview.innerHTML}
+</body>
+</html>`;
+            const blob = new Blob([fullHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'document.html';
+            a.click();
+        }
+
+        function clearAll() {
+            mdInput.value = '';
+            preview.innerHTML = '';
+        }
+
+        mdInput.addEventListener('input', updatePreview);
+        updatePreview();
+    </script>
+</body>
+</html>
