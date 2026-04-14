@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free productivity tools: word counter, code runner, password generator. Fast, private, no signup required.">
-    <meta name="theme-color" content="#1a1a1a">
+    <meta name="description" content="Premium free online productivity tools including word counter, code runner, password generator, JSON formatter, QR code generator, unit converter, Base64 encoder, and markdown converter. All tools are free, fast, and private. No signup required.">
+    <meta name="keywords" content="free online tools, productivity tools, word counter, code runner, password generator, JSON formatter, QR code generator, unit converter, Base64 encoder, markdown converter">
+    <meta name="theme-color" content="#0f1419">
+    <meta name="author" content="Free Tools Platform">
 
-    <title>Free Tools - Word Counter, Code Runner, Password Generator</title>
-    <link rel="canonical" href="https://youant.me/">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%231a1a1a'>⚡</text></svg>">
+    <title>Free Online Tools - Word Counter, Code Runner, Password Generator & More</title>
+    <link rel="canonical" href="https://tools.youant.me/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' fill='%2310b981'>⚡</text></svg>">
     <link rel="stylesheet" href="/style.css">
 
-    <meta property="og:title" content="Free Tools - Productivity Apps">
-    <meta property="og:description" content="Word counter, code runner, password generator. All free, no tracking.">
+    <meta property="og:title" content="Free Online Productivity Tools">
+    <meta property="og:description" content="Premium collection of 8 free productivity tools. Word counter, code runner, QR generator, JSON formatter, unit converter, Base64 encoder, markdown converter, and password generator.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://youant.me/">
+    <meta property="og:url" content="https://tools.youant.me/">
+    <meta property="og:image" content="https://tools.youant.me/images/og-image.webp">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free Tools">
-    <meta name="twitter:description" content="Fast, private productivity tools.">
+    <meta name="twitter:title" content="Premium Free Online Tools">
+    <meta name="twitter:description" content="8 Professional productivity tools - 100% Free, Fast, and Private">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Free Tools",
-      "description": "Collection of free productivity tools including word counter, code runner, and password generator",
-      "url": "https://youant.me/",
+      "name": "Premium Free Online Tools",
+      "description": "Collection of 8 premium free online productivity tools for developers and content creators",
+      "url": "https://tools.youant.me/",
       "applicationCategory": "Productivity",
       "operatingSystem": "Web",
       "offers": {
@@ -34,31 +37,185 @@
         "price": "0",
         "priceCurrency": "USD"
       },
-      "hasApplication": [
-        {
-          "@type": "WebApplication",
-          "name": "Word Counter",
-          "url": "https://youant.me/word-counter/"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "Code Runner",
-          "url": "https://youant.me/code-runner/"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "Password Generator",
-          "url": "https://youant.me/password-generator/"
-        }
-      ]
+      "image": "https://tools.youant.me/images/og-image.webp"
     }
     </script>
 
     <style>
-        .tool-card { transition: all 0.3s ease; }
-        .tool-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-        .tool-card h3 { color: #1a1a1a; margin-bottom: 0.5rem; }
-        .tool-card p { color: #666; margin-bottom: 1.5rem; }
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1e293b 100%);
+            color: var(--white);
+            padding: var(--spacing-2xl) 0;
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(16,185,129,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(6,182,212,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            font-size: 3.5rem;
+            animation: fadeInUp 0.8s ease-out;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: var(--spacing-lg) auto;
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
+            line-height: 1.8;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: var(--spacing-xl);
+            justify-content: center;
+            margin-top: var(--spacing-2xl);
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .feature-badge {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-xl);
+            margin: var(--spacing-2xl) 0;
+        }
+
+        .tool-card {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .tool-card:nth-child(1) { animation-delay: 0.1s; }
+        .tool-card:nth-child(2) { animation-delay: 0.2s; }
+        .tool-card:nth-child(3) { animation-delay: 0.3s; }
+        .tool-card:nth-child(4) { animation-delay: 0.4s; }
+        .tool-card:nth-child(5) { animation-delay: 0.5s; }
+        .tool-card:nth-child(6) { animation-delay: 0.6s; }
+        .tool-card:nth-child(7) { animation-delay: 0.7s; }
+        .tool-card:nth-child(8) { animation-delay: 0.8s; }
+
+        .tool-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-xl), var(--shadow-glow);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            display: block;
+            animation: bounce 0.6s ease infinite;
+        }
+
+        .tool-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-dark);
+        }
+
+        .tool-card p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .tool-card .btn {
+            width: 100%;
+        }
+
+        .why-section {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-lg);
+            margin: var(--spacing-2xl) 0;
+        }
+
+        .why-section h2 {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .why-item {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--accent);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .why-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .why-item h4 {
+            color: var(--accent);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .why-item p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .tool-grid { grid-template-columns: 1fr; }
+            .hero-features { flex-direction: column; gap: var(--spacing-md); }
+        }
     </style>
 </head>
 <body>
@@ -68,44 +225,216 @@
         </div>
     </nav>
 
-    <div class="header">
+    <div class="hero">
         <div class="container">
-            <h1>Free Productivity Tools</h1>
-            <p>Fast, private, and easy to use. No signup. No tracking.</p>
+            <h1>Premium Free Online Tools</h1>
+            <p>8 professional productivity tools designed for developers, content creators, and everyone. 100% Free. Lightning fast. Completely private. No signup required.</p>
+
+            <div class="hero-features">
+                <div class="feature-badge">✓ 100% Free Forever</div>
+                <div class="feature-badge">✓ No Account Needed</div>
+                <div class="feature-badge">✓ Fully Private</div>
+                <div class="feature-badge">✓ Ultra Fast</div>
+            </div>
         </div>
     </div>
 
     <main class="container">
         <section>
-            <div class="grid grid-3">
-                <article class="card tool-card text-center">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">📝</h2>
+            <h2 class="section-title">Our Tools</h2>
+            <p style="text-align: center; margin-bottom: var(--spacing-2xl); font-size: 1.1rem;">Choose from our collection of 8 professional tools, each designed for speed, simplicity, and privacy.</p>
+
+            <div class="tool-grid">
+                <!-- Existing Tools -->
+                <article class="tool-card">
+                    <span class="tool-icon">📝</span>
                     <h3>Word Counter</h3>
-                    <p>Count words, characters, paragraphs, and calculate reading time instantly</p>
+                    <p>Instantly count words, characters, paragraphs, sentences, and calculate reading time. Perfect for writers and content creators.</p>
                     <a href="/word-counter/" class="btn">Open Tool →</a>
                 </article>
 
-                <article class="card tool-card text-center">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">💻</h2>
+                <article class="tool-card">
+                    <span class="tool-icon">💻</span>
                     <h3>Code Runner</h3>
-                    <p>Execute HTML, CSS, and JavaScript code with live preview</p>
+                    <p>Write and execute HTML, CSS, and JavaScript code with live preview. Download your code instantly.</p>
                     <a href="/code-runner/" class="btn">Open Tool →</a>
                 </article>
 
-                <article class="card tool-card text-center">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🔐</h2>
+                <article class="tool-card">
+                    <span class="tool-icon">🔐</span>
                     <h3>Password Generator</h3>
-                    <p>Create strong, secure, and random passwords instantly</p>
+                    <p>Create strong, secure, and random passwords instantly. Customize length and character types.</p>
                     <a href="/password-generator/" class="btn">Open Tool →</a>
                 </article>
+
+                <!-- New Tools -->
+                <article class="tool-card">
+                    <span class="tool-icon">{}</span>
+                    <h3>JSON Formatter</h3>
+                    <p>Format, validate, and beautify JSON data. Auto-fix errors and minify with one click.</p>
+                    <a href="/json-formatter/" class="btn">Open Tool →</a>
+                </article>
+
+                <article class="tool-card">
+                    <span class="tool-icon">📲</span>
+                    <h3>QR Code Generator</h3>
+                    <p>Generate professional QR codes from text or URLs. Choose size, color, and download instantly.</p>
+                    <a href="/qr-code-generator/" class="btn">Open Tool →</a>
+                </article>
+
+                <article class="tool-card">
+                    <span class="tool-icon">🔄</span>
+                    <h3>Unit Converter</h3>
+                    <p>Convert between 20+ units including distance, weight, temperature, volume, and speed.</p>
+                    <a href="/unit-converter/" class="btn">Open Tool →</a>
+                </article>
+
+                <article class="tool-card">
+                    <span class="tool-icon">📊</span>
+                    <h3>Base64 Encoder</h3>
+                    <p>Encode and decode text to Base64 instantly. Upload files and batch process with ease.</p>
+                    <a href="/base64-encoder/" class="btn">Open Tool →</a>
+                </article>
+
+                <article class="tool-card">
+                    <span class="tool-icon">📝</span>
+                    <h3>Markdown to HTML</h3>
+                    <p>Convert Markdown to HTML instantly with live preview. Includes syntax guide and highlighting.</p>
+                    <a href="/markdown-to-html/" class="btn">Open Tool →</a>
+                </article>
             </div>
+        </section>
+
+        <section class="why-section">
+            <h2 class="section-title">Why Choose Our Tools?</h2>
+
+            <div class="why-grid">
+                <div class="why-item">
+                    <h4>⚡ Lightning Fast</h4>
+                    <p>All processing happens instantly in your browser. No servers, no delays, no loading.</p>
+                </div>
+
+                <div class="why-item">
+                    <h4>🔐 100% Private</h4>
+                    <p>Your data never leaves your browser. No tracking, no ads, no data collection whatsoever.</p>
+                </div>
+
+                <div class="why-item">
+                    <h4>💰 Always Free</h4>
+                    <p>Every tool is completely free to use forever. No premium version, no hidden costs.</p>
+                </div>
+
+                <div class="why-item">
+                    <h4>📱 Mobile Friendly</h4>
+                    <p>Works perfectly on phones, tablets, and desktops. Responsive design on all devices.</p>
+                </div>
+
+                <div class="why-item">
+                    <h4>🎯 Easy to Use</h4>
+                    <p>Simple interfaces designed for maximum productivity. Copy paste, click, done.</p>
+                </div>
+
+                <div class="why-item">
+                    <h4>🌐 No Account Needed</h4>
+                    <p>Start using tools immediately. No signup, email verification, or complicated process.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Popular Use Cases</h2>
+            <ul>
+                <li><strong>Content Writers:</strong> Use Word Counter to meet word count requirements and track reading time.</li>
+                <li><strong>Web Developers:</strong> Use Code Runner to test HTML/CSS/JavaScript snippets and live preview your code.</li>
+                <li><strong>Security Conscious:</strong> Use Password Generator to create strong passwords for all your accounts.</li>
+                <li><strong>API Developers:</strong> Use JSON Formatter to validate and beautify API responses.</li>
+                <li><strong>Marketers:</strong> Use QR Code Generator to create promotional codes for campaigns.</li>
+                <li><strong>Scientists:</strong> Use Unit Converter for quick scientific and metric conversions.</li>
+                <li><strong>Data Scientists:</strong> Use Base64 Encoder for data encoding and transmission.</li>
+                <li><strong>Technical Writers:</strong> Use Markdown to HTML Converter for documentation creation.</li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Latest Blog Articles</h2>
+            <p>Learn tips, tricks, and best practices:</p>
+            <ul>
+                <li><strong><a href="/blog/how-to-format-json-online.html">How to Format JSON Online</a>:</strong> Master JSON formatting for better API debugging and data handling.</li>
+                <li><strong><a href="/blog/markdown-syntax-guide.html">Complete Markdown Syntax Guide</a>:</strong> Learn all Markdown features for professional documentation.</li>
+                <li><strong><a href="/blog/strong-password-security.html">Create Strong Passwords Like a Pro</a>:</strong> Essential password security practices explained.</li>
+                <li><strong><a href="/blog/unit-conversion-guide.html">Master Unit Conversions</a>:</strong> Quick guide to converting any unit accurately.</li>
+                <li><a href="/blog/">View all articles →</a></li>
+            </ul>
         </section>
     </main>
 
     <footer>
-        <div class="container text-center">
-            <p>&copy; 2026 Free Tools. Simple. Fast. Private.</p>
+        <div class="container">
+            <div>
+                <h4>Tools</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="/word-counter/">Word Counter</a></li>
+                    <li><a href="/code-runner/">Code Runner</a></li>
+                    <li><a href="/password-generator/">Password Generator</a></li>
+                    <li><a href="/json-formatter/">JSON Formatter</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>More Tools</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="/qr-code-generator/">QR Code Generator</a></li>
+                    <li><a href="/unit-converter/">Unit Converter</a></li>
+                    <li><a href="/base64-encoder/">Base64 Encoder</a></li>
+                    <li><a href="/markdown-to-html/">Markdown to HTML</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Resources</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/resources/faq.html">FAQ</a></li>
+                    <li><a href="/resources/about.html">About</a></li>
+                    <li><a href="/resources/privacy.html">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Premium Free Tools. All rights reserved. Designed for simplicity, speed, and privacy.</p>
         </div>
     </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Prefetch links on hover for faster navigation
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                const href = link.getAttribute('href');
+                if (href && !href.startsWith('#') && !href.startsWith('http')) {
+                    const link_el = document.createElement('link');
+                    link_el.rel = 'prefetch';
+                    link_el.href = href;
+                    document.head.appendChild(link_el);
+                }
+            });
+        });
+
+        // Add stagger animation to tool cards
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.tool-card').forEach((card, index) => {
+                card.style.animationDelay = (index * 0.1) + 's';
+            });
+        });
+    </script>
 </body>
 </html>
