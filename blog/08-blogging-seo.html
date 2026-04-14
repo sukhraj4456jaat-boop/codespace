@@ -145,9 +145,27 @@
     </style>
 </head>
 <body>
-    <nav>
+    <nav class="navbar">
         <div class="container">
             <div class="logo"><a href="/">⚡ Free Tools</a></div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#tools">Tools</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li class="nav-dropdown">
+                    <a href="/resources/about.html">Resources ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="/resources/about.html">About Us</a>
+                        <a href="/resources/faq.html">FAQ</a>
+                        <a href="/resources/privacy.html">Privacy Policy</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -309,5 +327,26 @@
             <p>&copy; 2026 Premium Free Tools. All rights reserved. Designed for simplicity, speed, and privacy.</p>
         </div>
     </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
