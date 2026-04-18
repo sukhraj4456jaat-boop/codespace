@@ -65,7 +65,7 @@ Upload all files to your FTP server:
 - .htaccess
 
 ### Domain Setup
-1. Update domain references from `youant.me` to your domain in:
+1. Update domain references from `yooant.me` to your domain in:
    - `/index.html` - meta tag og:url and canonical
    - `/word-counter/index.html` - canonical link
    - `/code-runner/index.html` - canonical link
@@ -112,7 +112,7 @@ Upload all files to your FTP server:
 
 ### 📋 Google Indexing Checklist
 
-- [ ] Update all domain references to youant.me (or your domain)
+- [ ] Update all domain references to yooant.me (or your domain)
 - [ ] Deploy to production server
 - [ ] Test homepage loads without errors
 - [ ] Test all 3 tools function correctly

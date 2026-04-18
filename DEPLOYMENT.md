@@ -3,25 +3,25 @@
 ## Pre-Deployment Setup
 
 ### 1. Update Domain References
-Update **ALL** instances of `youant.me` with your actual domain in these files:
+Update **ALL** instances of `yooant.me` with your actual domain in these files:
 
 **index.html:**
 ```html
-- Line 15: <meta property="og:url" content="https://youant.me/">
-- Line 24: <link rel="canonical" href="https://youant.me/">
-- Line 82: "url": "https://youant.me",
-- Line 102: "url": "https://youant.me",
+- Line 15: <meta property="og:url" content="https://yooant.me/">
+- Line 24: <link rel="canonical" href="https://yooant.me/">
+- Line 82: "url": "https://yooant.me",
+- Line 102: "url": "https://yooant.me",
 ```
 
 **sitemap.xml:**
 ```xml
-- Line 8: <loc>https://youant.me/</loc>
-- All other <loc> tags with youant.me
+- Line 8: <loc>https://yooant.me/</loc>
+- All other <loc> tags with yooant.me
 ```
 
 **robots.txt:**
 ```text
-- Line 18: Sitemap: https://youant.me/sitemap.xml
+- Line 18: Sitemap: https://yooant.me/sitemap.xml
 ```
 
 **vercel.json & netlify.toml:**

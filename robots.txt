@@ -14,4 +14,4 @@ Allow: /markdown-to-html/
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://tools.youant.me/sitemap.xml
+Sitemap: https://yooant.me/sitemap.xml

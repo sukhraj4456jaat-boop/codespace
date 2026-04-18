@@ -12,11 +12,6 @@
     Permissions-Policy = "microphone=(), camera=(), geolocation=()"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://api.guerrillamail.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.guerrillamail.com; frame-ancestors 'self'; child-src 'self';"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 # Cache rules
 [[headers]]
   for = "/style.css"

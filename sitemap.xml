@@ -3,7 +3,7 @@
         xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
     <!-- Main Homepage -->
     <url>
-        <loc>https://tools.youant.me/</loc>
+        <loc>https://yooant.me/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -11,21 +11,21 @@
     </url>
     <!-- Existing Tools -->
     <url>
-        <loc>https://tools.youant.me/word-counter/</loc>
+        <loc>https://yooant.me/word-counter/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/code-runner/</loc>
+        <loc>https://yooant.me/code-runner/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/password-generator/</loc>
+        <loc>https://yooant.me/password-generator/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
@@ -33,35 +33,35 @@
     </url>
     <!-- New Tools -->
     <url>
-        <loc>https://tools.youant.me/json-formatter/</loc>
+        <loc>https://yooant.me/json-formatter/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/qr-code-generator/</loc>
+        <loc>https://yooant.me/qr-code-generator/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/unit-converter/</loc>
+        <loc>https://yooant.me/unit-converter/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/base64-encoder/</loc>
+        <loc>https://yooant.me/base64-encoder/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/markdown-to-html/</loc>
+        <loc>https://yooant.me/markdown-to-html/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
@@ -69,100 +69,103 @@
     </url>
     <!-- Resources -->
     <url>
-        <loc>https://tools.youant.me/blog/</loc>
+        <loc>https://yooant.me/blog/</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/resources/faq.html</loc>
+        <loc>https://yooant.me/resources/faq.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/resources/about.html</loc>
+        <loc>https://yooant.me/resources/about.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/resources/privacy.html</loc>
+        <loc>https://yooant.me/resources/privacy.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
         <mobile:mobile/>
+    </url>
     <!-- Blog Articles -->
     <url>
-        <loc>https://tools.youant.me/blog/01-json-api-formatting.html</loc>
+        <loc>https://yooant.me/blog/01-json-api-formatting.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/blog/02-markdown-syntax.html</loc>
+        <loc>https://yooant.me/blog/02-markdown-syntax.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/blog/03-strong-passwords.html</loc>
+        <loc>https://yooant.me/blog/03-strong-passwords.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/blog/04-temperature-conversion.html</loc>
+        <loc>https://yooant.me/blog/04-temperature-conversion.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/blog/05-qr-codes-business.html</loc>
+        <loc>https://yooant.me/blog/05-qr-codes-business.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/blog/06-web-development-beginners.html</loc>
+        <loc>https://yooant.me/blog/06-web-development-beginners.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/blog/07-base64-encoding.html</loc>
+        <loc>https://yooant.me/blog/07-base64-encoding.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/blog/08-blogging-seo.html</loc>
+        <loc>https://yooant.me/blog/08-blogging-seo.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/blog/09-unit-conversions-science.html</loc>
+        <loc>https://yooant.me/blog/09-unit-conversions-science.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
     <url>
-        <loc>https://tools.youant.me/blog/10-api-rest-basics.html</loc>
+        <loc>https://yooant.me/blog/10-api-rest-basics.html</loc>
         <lastmod>2026-04-14T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <mobile:mobile/>
     </url>
+
+</urlset>

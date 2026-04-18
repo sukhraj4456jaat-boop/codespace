@@ -176,7 +176,7 @@ This document provides a comprehensive guide to optimizing the Word Counter Tool
 ## Optimization Checklist
 
 ### Before Launch
-- [ ] Update all "youant.me" references with actual domain
+- [ ] Update all "yooant.me" references with actual domain
 - [ ] Update Twitter handle in meta tags
 - [ ] Add Google Analytics 4 code
 - [ ] Add Google Search Console verification
