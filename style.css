@@ -458,13 +458,9 @@ nav a:hover { color: var(--accent); }
 .btn:hover {
   background: var(--accent-dark);
   border-color: var(--accent-dark);
-  box-shadow: var(--shadow-lg), 0 0 20px rgba(16, 185, 129, 0.4);
-  transform: translateY(-2px);
-}
-  transform: translateY(-3px);
   box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(-3px);
 }
-
 .btn:active {
   transform: translateY(-1px);
 }
